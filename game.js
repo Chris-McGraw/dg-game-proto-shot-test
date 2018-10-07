@@ -149,13 +149,13 @@ $(document).ready(function() {
 
   function checkShotPreviewLength() {
     if(currentShotPreviewLength.toString().length === 3) {
-      $shotPreviewLength.html(currentShotPreviewLength);
+      $shotPreviewLength.html(currentShotPreviewLength + "'");
     }
     else if(currentShotPreviewLength.toString().length === 2) {
-      $shotPreviewLength.html("0" + currentShotPreviewLength);
+      $shotPreviewLength.html("0" + currentShotPreviewLength + "'");
     }
     else if(currentShotPreviewLength.toString().length === 1) {
-      $shotPreviewLength.html("00" + currentShotPreviewLength);
+      $shotPreviewLength.html("00" + currentShotPreviewLength + "'");
     }
   }
 
@@ -479,18 +479,18 @@ $(document).ready(function() {
               shotLength1 = -310 - (-10 * shotLoopCount1);
               shotWidth1 = 80 - (13 * releaseLoopCount1);
 
-              if(releasePoint <= - 19) {
+              if(releasePoint <= -19) {
                 shotWidth2 =  120 - (30 * releaseLoopCount1);
               }
-              else if(releasePoint <= - 16 && releasePoint >= -18) {
+              else if(releasePoint <= -16 && releasePoint >= -18) {
                 shotWidth1 = 50;
                 shotWidth2 = 47;
               }
-              else if(releasePoint <= - 13 && releasePoint >= -15) {
+              else if(releasePoint <= -13 && releasePoint >= -15) {
                 shotWidth1 = 47;
                 shotWidth2 = 43;
               }
-              else if(releasePoint <= - 10 && releasePoint >= -12) {
+              else if(releasePoint <= -10 && releasePoint >= -12) {
                 shotWidth1 = 44;
                 shotWidth2 = 40;
               }
@@ -540,7 +540,7 @@ $(document).ready(function() {
       shotStarted = false;
 
       currentShotPreviewLength = 200;
-      $shotPreviewLength.html("200");
+      $shotPreviewLength.html("200'");
       previewLengthPositionX = 419;
       $shotPreviewLength.css("left", "419px");
       aimPointerPositionY = 0;
