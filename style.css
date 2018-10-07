@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+
   user-select: none;
 
   /* border: 2px solid red; */
@@ -12,23 +13,27 @@
 
 #shot-test-container {
   position: absolute;
+  top: 150px;
   left: -764px;
   right: 0;
-  top: 150px;
+
   width: 100px;
   height: 248px;
   margin: auto;
+
   border: 1px solid black;
 }
 
 #test-title-top {
   position: absolute;
+  top: 8px;
   left: 0;
   right: 0;
-  top: 8px;
+
   width: 80px;
   height: 20px;
   margin: auto;
+
   text-align: center;
   text-decoration: underline;
   font-size: 14px;
@@ -37,62 +42,73 @@
 
 #test-title-1 {
   position: absolute;
+  top: 40px;
   left: 0;
   right: 0;
-  top: 40px;
+
   width: 80px;
   height: 20px;
   margin: auto;
+
   text-align: center;
   font-size: 13px;
 }
 
 #input-box-1 {
   position: absolute;
+  top: 60px;
   left: 0;
   right: 0;
-  top: 60px;
+
   width: 40px;
   margin: auto;
+
   text-align: center;
 }
 
 #test-title-2 {
   position: absolute;
+  top: 100px;
   left: 0;
   right: 0;
-  top: 100px;
+
   width: 80px;
   height: 20px;
   margin: auto;
+
   text-align: center;
   font-size: 13px;
 }
 
 #input-box-2 {
   position: absolute;
+  top: 120px;
   left: 0;
   right: 0;
-  top: 120px;
+
   width: 40px;
   margin: auto;
+
   text-align: center;
 }
 
 #shot-test-button {
   position: absolute;
+  top: 200px;
   left: 0;
   right: 0;
-  top: 200px;
+
   width: 60px;
   height: 20px;
-  padding-top: 3px;
   margin: auto;
+  padding-top: 3px;
+
+  text-align: center;
+  font-size: 14px;
+
   background-color: lightGray;
   border: 1px solid black;
   border-radius: 2px;
-  text-align: center;
-  font-size: 14px;
   box-shadow: 1px 1px 0px #878787;
 }
 
@@ -103,16 +119,16 @@
 
 #background-water {
   position: absolute;
+  z-index: -10;
   top: 0;
   left: 0;
-  z-index: -10;
 }
 
 #foreground {
   position: absolute;
+  z-index: 0;
   top: 0;
   left: 0;
-  z-index: 0;
 }
 
 /* #ob-zone-0 {
@@ -127,7 +143,6 @@
   border: 1px solid red;
   z-index: 10;
 }
-
 #ob-zone-0:before {
   content: "";
   position: absolute;
@@ -141,7 +156,6 @@
   border: 1px solid white;
   z-index: 10;
 }
-
 #ob-zone-0:after {
   content: "";
   position: absolute;
@@ -155,7 +169,6 @@
   border: 1px solid yellow;
   z-index: 10;
 }
-
 #ob-zone-1 {
   position: absolute;
   left: 0;
@@ -168,7 +181,6 @@
   border: 1px solid red;
   z-index: 10;
 }
-
 #ob-zone-1:before {
   content: "";
   position: absolute;
@@ -182,7 +194,6 @@
   border: 1px solid white;
   z-index: 10;
 }
-
 #ob-zone-2 {
   position: absolute;
   left: 381px;
@@ -195,7 +206,6 @@
   border: 1px solid red;
   z-index: 10;
 }
-
 #ob-zone-2:before {
   content: "";
   position: absolute;
@@ -209,7 +219,6 @@
   border: 1px solid white;
   z-index: 10;
 }
-
 #ob-zone-2:after {
   content: "";
   position: absolute;
@@ -223,7 +232,6 @@
   border: 1px solid yellow;
   z-index: 10;
 }
-
 #ob-zone-3 {
   position: absolute;
   left: 381px;
@@ -236,7 +244,6 @@
   border: 1px solid red;
   z-index: 10;
 }
-
 #ob-zone-3:before {
   content: "";
   position: absolute;
@@ -250,7 +257,6 @@
   border: 1px solid white;
   z-index: 10;
 }
-
 #ob-zone-3:after {
   content: "";
   position: absolute;
@@ -267,29 +273,32 @@
 
 #preview-pointer-container {
   position: absolute;
+  z-index: 20;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
+
   margin: auto;
-  z-index: 20;
 }
 
 #shot-preview-pointer-top {
   position: absolute;
+  z-index: 20;
+  top: 13px;
   left: -12px;
   right: 0;
-  top: 13px;
+
   margin: auto;
-  z-index: 20;
 }
 
 #shot-preview-pointer-bottom {
   position: absolute;
+  z-index: 20;
+  top: 20px;
   left: -12px;
   right: 0;
-  top: 20px;
+
   margin: auto;
-  z-index: 20;
 }
 
 .blink {
@@ -298,12 +307,14 @@
 
 #screen-container {
   position: absolute;
+  top: 50px;
   left: 0;
   right: 0;
-  top: 50px;
+
   width: 608px;
   height: 448px;
   margin: auto;
+
   border: 1px solid black;
 }
 
@@ -312,78 +323,88 @@
   top: 10px;
   left: 10px;
   right: 0;
+
   width: 60px;
   height: 50px;
-  box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.55);
-  border: 1px solid black;
+
+  text-align: center;
   font-family: "VT323", monospace;
   font-size: 16px;
   color: black;
-  text-align: center;
+
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 /* #circle-one {
   position: absolute;
+  z-index: 20;
+  top: 16px;
   left: -16px;
   right: 0;
-  top: 16px;
   margin: auto;
-  z-index: 20;
 } */
 
 #basket {
   position: absolute;
+  z-index: 10;
+  top: 22px;
   left: -16px;
   right: 0;
-  top: 22px;
+
   margin: auto;
-  z-index: 10;
 }
 
 #teepad {
   position: absolute;
+  z-index: 20;
+  top: 320px;
   left: 0;
   right: 0;
-  top: 320px;
+
   margin: auto;
+
   box-shadow: 1px -1px 3px rgba(0, 0, 0, 0.6);
-  z-index: 20;
 }
 
 #player-sprite {
   position: absolute;
+  z-index: 30;
+  top: 330px;
   left: 0;
   right: 0;
-  top: 330px;
+
   margin: auto;
-  z-index: 30;
 }
 
 .player-drive-movement {
   position: absolute;
+
   transform: translate(0px, -25px);
   transition: transform 1400ms ease-in;
 }
 
 #disc-temp {
   position: absolute;
+  z-index: 20;
+  top: 350px;
   left: 18px;
   right: 0;
-  top: 350px;
+
   margin: auto;
-  z-index: 20;
 }
 
 #disc-container {
   position: absolute;
+  z-index: 10;
+  top: 342px;
   left: 0;
   right: 0;
-  top: 342px;
+
   width: 10px;
   height: 10px;
   margin: auto;
-  z-index: 10;
 
   /* border: 1px solid black; */
 }
@@ -393,17 +414,14 @@
   position: absolute;
   left: 71px;
   right: 0;
-
   top: -262px;
   top: 0px;
-
   width: 10px;
   height: 10px;
   margin: auto;
   z-index: 10;
   border: 1px solid black;
 }
-
 #container-pos-test {
   position: absolute;
   left: 81px;
@@ -418,15 +436,17 @@
 
 #disc {
   position: absolute;
+  z-index: 10;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
+
   width: 10px;
   height: 10px;
   margin: auto;
+
   background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527429339/DG-GAME-PROTO/disc-16x16_wi4gex.png");
   background-repeat: no-repeat;
-  z-index: 10;
 }
 
 /* #disc:after {
@@ -457,32 +477,36 @@
 
 #disc-shadow {
   position: absolute;
+  top: -3px;
   left: -3px;
   right: 0;
-  top: -3px;
+
   width: 16px;
   height: 16px;
   margin: auto;
+
   background-image: url("https://res.cloudinary.com/dtwyohvli/image/upload/v1527519341/DG-GAME-PROTO/disc-shadow-8x8_dnj2yb.png");
   background-repeat: no-repeat;
 }
 
 #disc-water-splash {
   position: absolute;
+  z-index: -10;
+  top: 339px;
   left: 0;
   right: 0;
-  top: 339px;
+
   width: 16px;
   height: 16px;
   margin: auto;
-  z-index: -10;
 }
 
 #shot-UI-container {
   position: absolute;
+  top: 397px;
   left: 0;
   right: 0;
-  top: 397px;
+
   width: 608px;
   height: 50px;
   margin: auto;
@@ -493,10 +517,12 @@
 
 #shot-preview-length {
   position: absolute;
+  top: 8px;
   left: 419px;
   right: 0;
-  top: 8px;
+
   margin: auto;
+
   font-family: "VT323", monospace;
   font-size: 12px;
   color: white;
@@ -504,53 +530,61 @@
 
 #shot-power-meter {
   position: absolute;
+  z-index: 0;
+  top: 20px;
   left: 0;
   right: 0;
-  top: 20px;
+
   width: 250px;
   height: 20px;
   margin: auto;
+
+  background-color: lightYellow;
   border: 1px solid black;
   border-radius: 2px;
-  background-color: lightYellow;
-  z-index: 0;
 }
 
 #release-point-good {
   position: absolute;
-  left: 20px;
   top: 0;
+  left: 20px;
+
   width: 20px;
   height: 20px;
+
   background-color: darkBlue;
 }
 
 #release-point-perfect {
   position: absolute;
+  z-index: 0;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
+
   width: 4px;
   height: 18px;
   margin: auto;
+
+  background-color: white;
   border: 1px solid white;
   border-radius: 1px;
-  background-color: white;
-  z-index: 0;
 }
 
 #power-indicator {
   position: absolute;
+  z-index: 10;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
+
   width: 4px;
   height: 18px;
   margin: auto;
+
+  background-color: lightGray;
   border: 1px solid darkGray;
   border-radius: 1px;
-  background-color: lightGray;
-  z-index: 10;
 }
 
 .power-indicator-move-right {
@@ -575,73 +609,85 @@
 
 #power-aim-indicator {
   position: absolute;
+  z-index: 0;
+  top: 0;
   left: 224px;
   right: 0;
-  top: 0;
+
   width: 4px;
   height: 18px;
   margin: auto;
+
+  background-color: white;
   border: 1px solid darkGray;
   border-radius: 1px;
-  background-color: white;
-  z-index: 0;
 }
 
 #indicator-trail {
   position: absolute;
-  left: 8px;
+  z-index: -10;
   top: 3px;
+  left: 8px;
+
   width: 4px;
   height: 14px;
-  border-radius: 1px;
+
   background-color: darkGray;
-  z-index: -10;
+  border-radius: 1px;
 }
 
 .expand-trail {
   width: 220px !important;
+
   transition: width 1220ms linear;
 }
 
 .retract-trail {
   width: 4px !important;
+
   transition: width 1220ms linear;
 }
 
 #indicator-ghost {
   position: absolute;
+  z-index: 0;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
+
   width: 4px;
   height: 18px;
   margin: auto;
+
+  background-color: lightGray;
   border: 1px solid darkGray;
   border-radius: 1px;
-  background-color: lightGray;
-  z-index: 0;
 }
 
 #instruction-container {
   position: absolute;
+  top: 530px;
   left: 0;
   right: 0;
-  top: 530px;
+
   width: 508px;
   height: 120px;
   margin: auto;
+
   /* border: 1px solid black;
   border-radius: 10px; */
 }
 
 #instruction-text {
   position: absolute;
+  top: 10px;
   left: 0;
   right: 0;
-  top: 10px;
+
   width: 380px;
   margin: auto;
+
+  text-align: center;
   font-family: "VT323", monospace;
   font-size: 20px;
-  text-align: center;
 }
