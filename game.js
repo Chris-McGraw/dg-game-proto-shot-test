@@ -267,84 +267,6 @@ $(document).ready(function() {
   }
 
 
-  function OB_WaterHit() {
-    console.log("OB WATER!!!");
-    waterHitAudio.muted = false;
-    waterHitAudio.play();
-
-    $disc.addClass("hidden");
-    $discShadow.css("visibility", "hidden");
-
-    setTimeout(function() {
-      $discShadow.removeClass("player-drive-movement");
-      $discShadow.removeClass("disc-shot");
-      $discShadow.removeClass("disc-shot-end");
-      $discWaterSplash.removeClass("hidden");
-      $discWaterSplash.css("visibility", "visible");
-
-      waterSplashAnimation();
-    }, 0);
-  }
-
-
-  function checkDiscOB() {
-    discPositionX = Math.floor($discContainer.position().left);
-    discPositionY = Math.floor($disc.position().top);
-
-    /* console.log($obZone.position());
-    console.log("disc top: " + discPositionY); */
-    console.log("disc container left: " + discPositionX);
-
-  /* ----------- OB ZONE 0 ---------- */
-    if(discPositionY <= -251 && discPositionX <= -75) {
-      OB_WaterHit();
-    }
-  /* ------ OB ZONE 0 : Before ----- */
-    else if(discPositionY <= -271 && discPositionY >= -291 && discPositionX <= -63) {
-      OB_WaterHit();
-    }
-  /* ------ OB ZONE 0 : After ----- */
-    else if(discPositionY <= -251 && discPositionY >= -271 && discPositionX <= -54) {
-      OB_WaterHit();
-    }
-
-  /* ----------- OB ZONE 1 ---------- */
-    else if(discPositionY <= -3 && discPositionY >= -251 && discPositionX <= 71) {
-      OB_WaterHit();
-    }
-  /* ----------- OB ZONE 1 : Before ---------- */
-    else if(discPositionY <= -251 && discPositionY >= -261 && discPositionX <= -40) {
-      OB_WaterHit();
-    }
-
-  /* ----------- OB ZONE 2 ---------- */
-    else if(discPositionY <= -179 && discPositionY >= -219 && discPositionX <= 94) {
-      OB_WaterHit();
-    }
-  /* ----------- OB ZONE 2 : Before ---------- */
-    else if(discPositionY <= -169 && discPositionY >= -179 && discPositionX <= 87) {
-      OB_WaterHit();
-    }
-  /* ----------- OB ZONE 2 : After ---------- */
-    else if(discPositionY <= -157 && discPositionY >= -169 && discPositionX <= 82) {
-      OB_WaterHit();
-    }
-
-  /* ----------- OB ZONE 3 ---------- */
-    else if(discPositionY <= -38 && discPositionY >= -91 && discPositionX <= 89) {
-      OB_WaterHit();
-    }
-  /* ----------- OB ZONE 3 : Before ---------- */
-    else if(discPositionY <= -91 && discPositionY >= -115 && discPositionX <= 82) {
-      OB_WaterHit();
-    }
-  /* ----------- OB ZONE 3 : After ---------- */
-    else if(discPositionY <= -28 && discPositionY >= -38 && discPositionX <= 82) {
-      OB_WaterHit();
-    }
-  }
-
-
   function shotStep() {
     $disc.addClass("disc-shot");
     $disc.css({"transform": "translateY(" + shotLength1 + "px) rotate(-180deg)"});
@@ -368,10 +290,6 @@ $(document).ready(function() {
 
       $discWaterSplash.css("top", (339 + shotLength1) + "px");
       $discWaterSplash.css({"transform": "translateX(" + shotWidth2 + "px)"});
-
-      setTimeout(function() {
-        checkDiscOB();
-      }, 1300);
     }, 1200);
   }
 
