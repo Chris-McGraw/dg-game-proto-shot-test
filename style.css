@@ -330,15 +330,6 @@
   box-sizing: border-box;
 }
 
-/* #circle-one {
-  position: absolute;
-  z-index: 20;
-  top: 16px;
-  left: -16px;
-  right: 0;
-  margin: auto;
-} */
-
 #teepad {
   position: absolute;
   z-index: 20;
@@ -347,8 +338,6 @@
   right: 0;
 
   margin: auto;
-
-  /* box-shadow: 1px -1px 3px rgba(0, 0, 0, 0.6); */
 }
 
 #player-sprite {
