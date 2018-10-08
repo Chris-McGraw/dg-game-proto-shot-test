@@ -346,28 +346,6 @@ $(document).ready(function() {
           shotWidth2 = -6;
 
           shotStep();
-
-        /* ------- ACE Functionality ------- */
-          if(shotPower >= 204 && shotPower <= 210) {
-            setTimeout(function() {
-              $disc.addClass("hidden");
-              $discShadow.addClass("hidden");
-              $basket.attr("src", basketMadeDiscImg);
-              chainHitAudio.play();
-            }, 2200);
-          }
-
-        /* ---- Cage Hit Functionality ---- */
-          else if(shotPower >= 197 && shotPower <= 203) {
-            setTimeout(function() {
-              cageHitAudio.play();
-
-              $disc.addClass("disc-shot-cage-hit");
-              $disc.css({"transform": "translateY(" + (shotLength1 + 14) + "px) rotate(-180deg)"});
-              $discShadow.addClass("disc-shot-cage-hit");
-              $discShadow.css({"transform": "translateY(" + (shotLength1 + 14) + "px) rotate(0deg)"});
-            }, 2200);
-          }
         }
 
       /* ---------- Early Release ---------- */
