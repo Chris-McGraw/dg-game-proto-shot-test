@@ -1,8 +1,5 @@
 /* ------------------------- IMG File Declarations ------------------------- */
 
-var basketEmptyImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066967/DG-GAME-PROTO/basket-32x48_job1zn.png";
-var basketMadeDiscImg = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529066874/DG-GAME-PROTO/basket-made-disc-32x48_jg7qi4.png";
-
 var backhandShot0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529506728/DG-GAME-PROTO/backhand-drive-0.png";
 var backhandShot1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529683836/DG-GAME-PROTO/backhand-drive-1.png";
 var backhandShot2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529529600/DG-GAME-PROTO/backhand-drive-2.png";
@@ -14,12 +11,6 @@ var backhandShot7 = "https://res.cloudinary.com/dtwyohvli/image/upload/v15296840
 var backhandShot8 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529684065/DG-GAME-PROTO/backhand-drive-8.png";
 var backhandShot9 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529684066/DG-GAME-PROTO/backhand-drive-9.png";
 var backhandShot10 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1529684066/DG-GAME-PROTO/backhand-drive-10.png";
-
-var splash0 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1530639527/DG-GAME-PROTO/splash-0.png";
-var splash1 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1530639527/DG-GAME-PROTO/splash-1.png";
-var splash2 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1530632532/DG-GAME-PROTO/splash-2.png";
-var splash3 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1530639527/DG-GAME-PROTO/splash-3.png";
-var splash4 = "https://res.cloudinary.com/dtwyohvli/image/upload/v1530639527/DG-GAME-PROTO/splash-4.png";
 
 
 $(document).ready(function() {
@@ -46,17 +37,6 @@ $(document).ready(function() {
   discDriveAudio.muted = false;
   discDriveAudio.volume = 0.5;
 
-  var waterHitAudio = document.getElementById("water-hit-audio");
-  waterHitAudio.muted = false;
-  waterHitAudio.volume = 1.0;
-
-  var chainHitAudio = document.getElementById("chain-hit-audio");
-  chainHitAudio.muted = false;
-  chainHitAudio.volume = 0.5;
-
-  var cageHitAudio = document.getElementById("cage-hit-audio");
-  chainHitAudio.muted = false;
-  chainHitAudio.volume = 1.0;
 
 /* ------------------------- Variable Declarations ------------------------- */
 
@@ -67,7 +47,6 @@ $(document).ready(function() {
   var $shotPreviewPointerBottom = $("#shot-preview-pointer-bottom");
   var $shotPreviewLength = $("#shot-preview-length");
 
-  var $basket = $("#basket");
   var $playerSprite = $("#player-sprite");
   var $discTemp = $("#disc-temp");
   var $discContainer = $("#disc-container");
@@ -78,7 +57,6 @@ $(document).ready(function() {
   var $indicatorTrail = $("#indicator-trail");
   var $indicatorGhost = $("#indicator-ghost");
   var indicatorGhostPositionX = 0;
-  var $discWaterSplash = $("#disc-water-splash");
 
   var shotStarted = false;
 
@@ -287,9 +265,6 @@ $(document).ready(function() {
       $discShadow.addClass("disc-shot-end");
       $discShadow.css({"transform": "translateY(" + shotLength1 + "px)"});
       $discContainer.css({"transform": "translateX(" + shotWidth2 + "px)"});
-
-      $discWaterSplash.css("top", (339 + shotLength1) + "px");
-      $discWaterSplash.css({"transform": "translateX(" + shotWidth2 + "px)"});
     }, 1200);
   }
 
@@ -402,7 +377,6 @@ $(document).ready(function() {
     }
   /* ----- Shot Reset Functionality ----- */
     setTimeout(function() {
-      $basket.attr("src", basketEmptyImg);
       $previewPointerContainer.removeClass("hidden");
       $playerSprite.removeClass("player-drive-movement");
       $discTemp.removeClass("hidden");
@@ -415,7 +389,6 @@ $(document).ready(function() {
       $disc.removeAttr("style");
       $disc.removeClass("player-drive-movement");
 
-      $discWaterSplash.addClass("hidden");
       $discShadow.css("visibility", "visible");
 
       $discShadow.removeClass("hidden");
