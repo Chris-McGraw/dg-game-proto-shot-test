@@ -124,6 +124,16 @@
   left: 0;
 }
 
+#path-test {
+  position: absolute;
+  z-index: 30;
+  top: 16px;
+  left: 20px;
+  right: 0;
+
+  margin: auto;
+}
+
 #preview-pointer-container {
   position: absolute;
   z-index: 20;
@@ -132,6 +142,8 @@
   right: 0;
 
   margin: auto;
+
+  display: none;
 }
 
 #shot-preview-pointer-top {
