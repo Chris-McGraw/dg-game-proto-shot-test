@@ -42,7 +42,10 @@ $(document).ready(function() {
 
   var $obZone = $("#ob-zone-0");
 
+  var shotType = "backhand";
+
   var $shotPath = $("#path-test");
+
   var pathLength = document.getElementById("path-length");
 
   var $previewPointerContainer = $("#preview-pointer-container");
@@ -65,7 +68,9 @@ $(document).ready(function() {
 
   var shotPathRotationCount = 0;
   var shotPathRotation = 0;
-  var shotPathHeight = 16;
+
+  var shotPathHeightBackhand = 16;
+  var shotPathHeightForehand = 16;
 
   var spaceBarPress = 0;
   var shotLoopValue = 0;
@@ -129,6 +134,24 @@ $(document).ready(function() {
         shotPreviewBlink();
       }, 2000);
     }, 100);
+  }
+
+
+  function changeShotType() {
+    if(shotType === "backhand") {
+      pathLength.setAttribute("d", "m18.418 89.083c-11.437-47.853 0-81.573 0-81.573");
+      $shotPath.css("top", shotPathHeightForehand + "px");
+      $shotPath.css("left", "-20px");
+
+      shotType = "forehand";
+    }
+    else if(shotType === "forehand") {
+      pathLength.setAttribute("d", "m13.332 89.083c11.437-47.853 0-81.573 0-81.573");
+      $shotPath.css("top", shotPathHeightBackhand + "px");
+      $shotPath.css("left", "20px");
+
+      shotType = "backhand";
+    }
   }
 
 
@@ -206,24 +229,6 @@ $(document).ready(function() {
   }
 
 
-  function moveShotPathLeft() {
-    if(shotStarted === false) {
-    /* --------- Shot Path Left --------- */
-      shotPathRotation -= 4;
-      shotPathHeight -= 0.5;
-
-      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
-      $shotPath.css("top", shotPathHeight + "px");
-
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
-
-      shotPathRotationCount--;
-    }
-  }
-
-
   function moveShotPreviewRight() {
     if(shotStarted === false) {
     /* ---- Shot Preview Pointer Right ---- */
@@ -237,14 +242,48 @@ $(document).ready(function() {
   }
 
 
+  function moveShotPathLeft() {
+    if(shotStarted === false) {
+    /* --------- Shot Path Left --------- */
+      shotPathRotation -= 4;
+
+      shotPathHeightBackhand -= 0.5;
+      shotPathHeightForehand += 0.5;
+
+      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+
+      if(shotType === "backhand") {
+        $shotPath.css("top", shotPathHeightBackhand + "px");
+      }
+      else if(shotType === "forehand") {
+        $shotPath.css("top", shotPathHeightForehand + "px");
+      }
+
+    /* -- Play Move Shot Preview Audio -- */
+      moveShotPreviewAudio.muted = false;
+      moveShotPreviewAudio.play();
+
+      shotPathRotationCount--;
+    }
+  }
+
+
   function moveShotPathRight() {
     if(shotStarted === false) {
     /* -------- Shot Path Right -------- */
       shotPathRotation += 4;
-      shotPathHeight += 0.5;
+
+      shotPathHeightBackhand += 0.5;
+      shotPathHeightForehand -= 0.5;
 
       $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
-      $shotPath.css("top", shotPathHeight + "px");
+
+      if(shotType === "backhand") {
+        $shotPath.css("top", shotPathHeightBackhand + "px");
+      }
+      else if(shotType === "forehand") {
+        $shotPath.css("top", shotPathHeightForehand + "px");
+      }
 
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
@@ -617,6 +656,12 @@ $(document).ready(function() {
     }
     if(event.which === 68 && shotPathRotationCount <= 9|| event.which === 39 && shotPathRotationCount <= 9) {
       moveShotPathRight();
+    }
+
+
+  /* ----- Change Shot Type (X) ----- */
+    if(event.which === 88) {
+      changeShotType();
     }
 
 
