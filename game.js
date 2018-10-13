@@ -42,6 +42,8 @@ $(document).ready(function() {
 
   var $obZone = $("#ob-zone-0");
 
+  var $shotPath = $("#path-test");
+
   var $previewPointerContainer = $("#preview-pointer-container");
   var $shotPreviewPointerTop = $("#shot-preview-pointer-top");
   var $shotPreviewPointerBottom = $("#shot-preview-pointer-bottom");
@@ -59,6 +61,10 @@ $(document).ready(function() {
   var indicatorGhostPositionX = 0;
 
   var shotStarted = false;
+
+  var shotPathRotationCount = 0;
+  var shotPathRotation = 0;
+  var shotPathHeight = 16;
 
   var spaceBarPress = 0;
   var shotLoopValue = 0;
@@ -199,6 +205,24 @@ $(document).ready(function() {
   }
 
 
+  function moveShotPathLeft() {
+    if(shotStarted === false) {
+    /* --------- Shot Path Left --------- */
+      shotPathRotation -= 4;
+      shotPathHeight -= 0.5;
+
+      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPath.css("top", shotPathHeight + "px");
+
+    /* -- Play Move Shot Preview Audio -- */
+      moveShotPreviewAudio.muted = false;
+      moveShotPreviewAudio.play();
+
+      shotPathRotationCount--;
+    }
+  }
+
+
   function moveShotPreviewRight() {
     if(shotStarted === false) {
     /* ---- Shot Preview Pointer Right ---- */
@@ -208,6 +232,24 @@ $(document).ready(function() {
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
       moveShotPreviewAudio.play();
+    }
+  }
+
+
+  function moveShotPathRight() {
+    if(shotStarted === false) {
+    /* -------- Shot Path Right -------- */
+      shotPathRotation += 4;
+      shotPathHeight += 0.5;
+
+      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPath.css("top", shotPathHeight + "px");
+
+    /* -- Play Move Shot Preview Audio -- */
+      moveShotPreviewAudio.muted = false;
+      moveShotPreviewAudio.play();
+
+      shotPathRotationCount++;
     }
   }
 
@@ -559,12 +601,21 @@ $(document).ready(function() {
     if(event.which === 83 && aimPointerPositionY < 280 || event.which === 40 && aimPointerPositionY < 280) {
       moveShotPreviewDown();
     }
+
     /* if(event.which === 65 && aimPointerPositionX > -200 || event.which === 37 && aimPointerPositionX > -200) {
       moveShotPreviewLeft();
     }
     if(event.which === 68 && aimPointerPositionX < 200 || event.which === 39 && aimPointerPositionX < 200) {
       moveShotPreviewRight();
     } */
+
+    if(event.which === 65 && shotPathRotationCount >= -9|| event.which === 37 && shotPathRotationCount >= -9) {
+      moveShotPathLeft();
+    }
+    if(event.which === 68 && shotPathRotationCount <= 9|| event.which === 39 && shotPathRotationCount <= 9) {
+      moveShotPathRight();
+    }
+
 
   /* -------- Spacebar Press -------- */
     if(event.which === 32 && spaceBarPress === 0) {
