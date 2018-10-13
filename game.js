@@ -43,6 +43,7 @@ $(document).ready(function() {
   var $obZone = $("#ob-zone-0");
 
   var $shotPath = $("#path-test");
+  var pathLength = document.getElementById("path-length");
 
   var $previewPointerContainer = $("#preview-pointer-container");
   var $shotPreviewPointerTop = $("#shot-preview-pointer-top");
@@ -587,6 +588,8 @@ $(document).ready(function() {
 
   /* shotPreviewBlink(); */
 
+  /* console.log(pathLength.getTotalLength()); */
+
   $shotTestButton.on("click", function() {
     if(shotStarted === false) {
       startShotTest();
@@ -618,7 +621,7 @@ $(document).ready(function() {
 
 
   /* -------- Spacebar Press -------- */
-    if(event.which === 32 && spaceBarPress === 0) {
+    /* if(event.which === 32 && spaceBarPress === 0) {
       spacebarPress1();
     }
     else if(event.which === 32 && spaceBarPress === 1) {
@@ -626,7 +629,7 @@ $(document).ready(function() {
     }
     else if(event.which === 32 && spaceBarPress === 2) {
       spacebarPress3();
-    }
+    } */
   });
 
   $(document).keyup(function(event) {
