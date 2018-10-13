@@ -68,7 +68,9 @@ $(document).ready(function() {
 
   var shotPathRotationCount = 0;
   var shotPathRotation = 0;
-  var shotPathHeight = 16;
+
+  var shotPathHeightBackhand = 16;
+  var shotPathHeightForehand = 16;
 
   var spaceBarPress = 0;
   var shotLoopValue = 0;
@@ -137,17 +139,15 @@ $(document).ready(function() {
 
   function changeShotType() {
     if(shotType === "backhand") {
-      /* $shotPath.css("transform", "scaleX(-1)"); */
       pathLength.setAttribute("d", "m18.418 89.083c-11.437-47.853 0-81.573 0-81.573");
-
+      $shotPath.css("top", shotPathHeightForehand + "px");
       $shotPath.css("left", "-20px");
 
       shotType = "forehand";
     }
     else if(shotType === "forehand") {
-      /* $shotPath.css("transform", "scaleX(1)"); */
       pathLength.setAttribute("d", "m13.332 89.083c11.437-47.853 0-81.573 0-81.573");
-
+      $shotPath.css("top", shotPathHeightBackhand + "px");
       $shotPath.css("left", "20px");
 
       shotType = "backhand";
@@ -242,14 +242,22 @@ $(document).ready(function() {
   }
 
 
-  function moveBackhandShotPathLeft() {
+  function moveShotPathLeft() {
     if(shotStarted === false) {
     /* --------- Shot Path Left --------- */
       shotPathRotation -= 4;
-      shotPathHeight -= 0.5;
+
+      shotPathHeightBackhand -= 0.5;
+      shotPathHeightForehand += 0.5;
 
       $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
-      $shotPath.css("top", shotPathHeight + "px");
+
+      if(shotType === "backhand") {
+        $shotPath.css("top", shotPathHeightBackhand + "px");
+      }
+      else if(shotType === "forehand") {
+        $shotPath.css("top", shotPathHeightForehand + "px");
+      }
 
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
@@ -260,50 +268,22 @@ $(document).ready(function() {
   }
 
 
-  function moveBackhandShotPathRight() {
+  function moveShotPathRight() {
     if(shotStarted === false) {
     /* -------- Shot Path Right -------- */
       shotPathRotation += 4;
-      shotPathHeight += 0.5;
+
+      shotPathHeightBackhand += 0.5;
+      shotPathHeightForehand -= 0.5;
 
       $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
-      $shotPath.css("top", shotPathHeight + "px");
 
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
-
-      shotPathRotationCount++;
-    }
-  }
-
-
-  function moveForehandShotPathLeft() {
-    if(shotStarted === false) {
-    /* --------- Shot Path Left --------- */
-      shotPathRotation -= 4;
-      shotPathHeight += 0.5;
-
-      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
-      $shotPath.css("top", shotPathHeight + "px");
-
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
-
-      shotPathRotationCount--;
-    }
-  }
-
-
-  function moveForehandShotPathRight() {
-    if(shotStarted === false) {
-    /* -------- Shot Path Right -------- */
-      shotPathRotation += 4;
-      shotPathHeight -= 0.5;
-
-      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
-      $shotPath.css("top", shotPathHeight + "px");
+      if(shotType === "backhand") {
+        $shotPath.css("top", shotPathHeightBackhand + "px");
+      }
+      else if(shotType === "forehand") {
+        $shotPath.css("top", shotPathHeightForehand + "px");
+      }
 
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
@@ -672,20 +652,10 @@ $(document).ready(function() {
     } */
 
     if(event.which === 65 && shotPathRotationCount >= -9|| event.which === 37 && shotPathRotationCount >= -9) {
-      if(shotType === "backhand") {
-        moveBackhandShotPathLeft();
-      }
-      else if(shotType === "forehand") {
-        moveForehandShotPathLeft();
-      }
+      moveShotPathLeft();
     }
     if(event.which === 68 && shotPathRotationCount <= 9|| event.which === 39 && shotPathRotationCount <= 9) {
-      if(shotType === "backhand") {
-        moveBackhandShotPathRight();
-      }
-      else if(shotType === "forehand") {
-        moveForehandShotPathRight();
-      }
+      moveShotPathRight();
     }
 
 
