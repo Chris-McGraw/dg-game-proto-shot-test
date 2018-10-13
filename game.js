@@ -42,7 +42,10 @@ $(document).ready(function() {
 
   var $obZone = $("#ob-zone-0");
 
+  var shotType = "backhand";
+
   var $shotPath = $("#path-test");
+
   var pathLength = document.getElementById("path-length");
 
   var $previewPointerContainer = $("#preview-pointer-container");
@@ -132,6 +135,26 @@ $(document).ready(function() {
   }
 
 
+  function changeShotType() {
+    if(shotType === "backhand") {
+      /* $shotPath.css("transform", "scaleX(-1)"); */
+      pathLength.setAttribute("d", "m18.418 89.083c-11.437-47.853 0-81.573 0-81.573");
+
+      $shotPath.css("left", "-20px");
+
+      shotType = "forehand";
+    }
+    else if(shotType === "forehand") {
+      /* $shotPath.css("transform", "scaleX(1)"); */
+      pathLength.setAttribute("d", "m13.332 89.083c11.437-47.853 0-81.573 0-81.573");
+
+      $shotPath.css("left", "20px");
+
+      shotType = "backhand";
+    }
+  }
+
+
   function checkShotPreviewLength() {
     if(currentShotPreviewLength.toString().length === 3) {
       $shotPreviewLength.html(currentShotPreviewLength + "'");
@@ -206,7 +229,20 @@ $(document).ready(function() {
   }
 
 
-  function moveShotPathLeft() {
+  function moveShotPreviewRight() {
+    if(shotStarted === false) {
+    /* ---- Shot Preview Pointer Right ---- */
+      aimPointerPositionX += 40;
+      $previewPointerContainer.css("left", aimPointerPositionX + "px");
+
+    /* -- Play Move Shot Preview Audio -- */
+      moveShotPreviewAudio.muted = false;
+      moveShotPreviewAudio.play();
+    }
+  }
+
+
+  function moveBackhandShotPathLeft() {
     if(shotStarted === false) {
     /* --------- Shot Path Left --------- */
       shotPathRotation -= 4;
@@ -224,24 +260,47 @@ $(document).ready(function() {
   }
 
 
-  function moveShotPreviewRight() {
-    if(shotStarted === false) {
-    /* ---- Shot Preview Pointer Right ---- */
-      aimPointerPositionX += 40;
-      $previewPointerContainer.css("left", aimPointerPositionX + "px");
-
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
-    }
-  }
-
-
-  function moveShotPathRight() {
+  function moveBackhandShotPathRight() {
     if(shotStarted === false) {
     /* -------- Shot Path Right -------- */
       shotPathRotation += 4;
       shotPathHeight += 0.5;
+
+      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPath.css("top", shotPathHeight + "px");
+
+    /* -- Play Move Shot Preview Audio -- */
+      moveShotPreviewAudio.muted = false;
+      moveShotPreviewAudio.play();
+
+      shotPathRotationCount++;
+    }
+  }
+
+
+  function moveForehandShotPathLeft() {
+    if(shotStarted === false) {
+    /* --------- Shot Path Left --------- */
+      shotPathRotation -= 4;
+      shotPathHeight += 0.5;
+
+      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPath.css("top", shotPathHeight + "px");
+
+    /* -- Play Move Shot Preview Audio -- */
+      moveShotPreviewAudio.muted = false;
+      moveShotPreviewAudio.play();
+
+      shotPathRotationCount--;
+    }
+  }
+
+
+  function moveForehandShotPathRight() {
+    if(shotStarted === false) {
+    /* -------- Shot Path Right -------- */
+      shotPathRotation += 4;
+      shotPathHeight -= 0.5;
 
       $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
       $shotPath.css("top", shotPathHeight + "px");
@@ -613,10 +672,26 @@ $(document).ready(function() {
     } */
 
     if(event.which === 65 && shotPathRotationCount >= -9|| event.which === 37 && shotPathRotationCount >= -9) {
-      moveShotPathLeft();
+      if(shotType === "backhand") {
+        moveBackhandShotPathLeft();
+      }
+      else if(shotType === "forehand") {
+        moveForehandShotPathLeft();
+      }
     }
     if(event.which === 68 && shotPathRotationCount <= 9|| event.which === 39 && shotPathRotationCount <= 9) {
-      moveShotPathRight();
+      if(shotType === "backhand") {
+        moveBackhandShotPathRight();
+      }
+      else if(shotType === "forehand") {
+        moveForehandShotPathRight();
+      }
+    }
+
+
+  /* ----- Change Shot Type (X) ----- */
+    if(event.which === 88) {
+      changeShotType();
     }
 
 
