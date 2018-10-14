@@ -60,6 +60,26 @@ $(document).ready(function() {
     strokeWidth: ".265"
   };
 
+  var backhand28 = {
+    width: "5.3429mm",
+    height: "81.646mm",
+    viewBox: "0 0 5.3428669 81.645798",
+    transform: "translate(-32.102 -32.415)",
+    d: "m32.231 114.03c11.437-47.853 0-81.573 0-81.573",
+    strokeDashArray: "1.05833333, 0.52916667",
+    strokeWidth: ".26458"
+  };
+
+  var forehand28 = {
+    width: "5.3429mm",
+    height: "81.646mm",
+    viewBox: "0 0 5.3428669 81.645798",
+    transform: "translate(-32.102 -32.415)",
+    d: "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573",
+    strokeDashArray: "1.05833333, 0.52916667",
+    strokeWidth: ".26458"
+  };
+
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
@@ -192,8 +212,35 @@ $(document).ready(function() {
   function moveShotPreviewUp() {
     if(shotStarted === false) {
     /* ----- Shot Preview Pointer Up ----- */
-      aimPointerPositionY -= 10;
-      $previewPointerContainer.css("top", aimPointerPositionY + "px");
+      shotPathHeightBackhand -= 10;
+      shotPathHeightForehand -= 10;
+
+      if(shotType === "backhand") {
+        $shotPathPreview.css("top", shotPathHeightBackhand);
+
+        svgMain.setAttribute("width", backhand28.width);
+        svgMain.setAttribute("height", backhand28.height);
+        svgMain.setAttribute("viewBox", backhand28.viewBox);
+
+        svgG.setAttribute("transform", backhand28.transform);
+
+        svgPath.setAttribute("d", backhand28.d);
+        svgPath.setAttribute("stroke-dasharray", backhand28.strokeDashArray);
+        svgPath.setAttribute("stroke-width", backhand28.strokeWidth);
+      }
+      else if(shotType === "forehand") {
+        $shotPathPreview.css("top", shotPathHeightForehand);
+
+        svgMain.setAttribute("width", forehand28.width);
+        svgMain.setAttribute("height", forehand28.height);
+        svgMain.setAttribute("viewBox", forehand28.viewBox);
+
+        svgG.setAttribute("transform", forehand28.transform);
+
+        svgPath.setAttribute("d", forehand28.d);
+        svgPath.setAttribute("stroke-dasharray", forehand28.strokeDashArray);
+        svgPath.setAttribute("stroke-width", forehand28.strokeWidth);
+      }
 
     /* ---- Shot Preview Length Right ---- */
       previewLengthPositionX += 7;
@@ -209,6 +256,8 @@ $(document).ready(function() {
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
       moveShotPreviewAudio.play();
+
+      shotArray++;
     }
   }
 
@@ -666,6 +715,9 @@ $(document).ready(function() {
       moveShotPreviewDown();
     } */
 
+    if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
+      moveShotPreviewUp();
+    }
     if(event.which === 83 && shotArray > 27|| event.which === 40 && shotArray > 27) {
       moveShotPreviewDown();
     }
