@@ -40,13 +40,25 @@ $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
 
+  var backhand27 = {
+    width: "5.3467mm",
+    height: "79mm",
+    viewBox: "",
+    transform: "",
+    d: "",
+    strokeDasharray: "",
+    strokeWidth: ""
+  };
+
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
 
-  var $shotPath = $("#path-test");
+  var $shotPathPreview = $("#svg-main");
 
-  var pathLength = document.getElementById("path-length");
+  var svgMain = document.getElementById("svg-main");
+  var svgG = document.getElementById("svg-g");
+  var svgPath = document.getElementById("svg-path");
 
   var $previewPointerContainer = $("#preview-pointer-container");
   var $shotPreviewPointerTop = $("#shot-preview-pointer-top");
@@ -119,16 +131,16 @@ $(document).ready(function() {
 
   function changeShotType() {
     if(shotType === "backhand") {
-      pathLength.setAttribute("d", "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573");
-      $shotPath.css("top", shotPathHeightForehand + "px");
-      $shotPath.css("left", "-20px");
+      svgPath.setAttribute("d", "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573");
+      $shotPathPreview.css("top", shotPathHeightForehand + "px");
+      $shotPathPreview.css("left", "-20px");
 
       shotType = "forehand";
     }
     else if(shotType === "forehand") {
-      pathLength.setAttribute("d", "m32.231 114.03c11.437-47.853 0-81.573 0-81.573");
-      $shotPath.css("top", shotPathHeightBackhand + "px");
-      $shotPath.css("left", "20px");
+      svgPath.setAttribute("d", "m32.231 114.03c11.437-47.853 0-81.573 0-81.573");
+      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
+      $shotPathPreview.css("left", "20px");
 
       shotType = "backhand";
     }
@@ -178,8 +190,20 @@ $(document).ready(function() {
   function moveShotPreviewDown() {
     if(shotStarted === false) {
     /* ---- Shot Preview Pointer Down ---- */
-      aimPointerPositionY += 10;
-      $previewPointerContainer.css("top", aimPointerPositionY + "px");
+      /* aimPointerPositionY += 10;
+      $previewPointerContainer.css("top", aimPointerPositionY + "px"); */
+
+      svgMain.setAttribute("width", backhand27.width);
+      svgMain.setAttribute("height", backhand27.height);
+      svgMain.setAttribute("viewBox", "0 0 5.3466983 79.000092");
+
+      $shotPathPreview.css("top", "26px");
+
+      svgG.setAttribute("transform", "translate(-29.077 -14.083)");
+
+      svgPath.setAttribute("d", "m29.205 93.052c11.446-46.3 0-78.925 0-78.925");
+      svgPath.setAttribute("stroke-dasharray", "1.05999995,0.52999997");
+      svgPath.setAttribute("stroke-width", ".265");
 
     /* ---- Shot Preview Length Left ---- */
       previewLengthPositionX -= 7;
@@ -207,13 +231,13 @@ $(document).ready(function() {
       shotPathHeightBackhand -= 0.5;
       shotPathHeightForehand += 0.5;
 
-      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPathPreview.css("transform", "rotate(" + shotPathRotation + "deg)");
 
       if(shotType === "backhand") {
-        $shotPath.css("top", shotPathHeightBackhand + "px");
+        $shotPathPreview.css("top", shotPathHeightBackhand + "px");
       }
       else if(shotType === "forehand") {
-        $shotPath.css("top", shotPathHeightForehand + "px");
+        $shotPathPreview.css("top", shotPathHeightForehand + "px");
       }
 
     /* -- Play Move Shot Preview Audio -- */
@@ -233,13 +257,13 @@ $(document).ready(function() {
       shotPathHeightBackhand += 0.5;
       shotPathHeightForehand -= 0.5;
 
-      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPathPreview.css("transform", "rotate(" + shotPathRotation + "deg)");
 
       if(shotType === "backhand") {
-        $shotPath.css("top", shotPathHeightBackhand + "px");
+        $shotPathPreview.css("top", shotPathHeightBackhand + "px");
       }
       else if(shotType === "forehand") {
-        $shotPath.css("top", shotPathHeightForehand + "px");
+        $shotPathPreview.css("top", shotPathHeightForehand + "px");
       }
 
     /* -- Play Move Shot Preview Audio -- */
@@ -582,7 +606,7 @@ $(document).ready(function() {
 
 /* ---------------------------- Event Handlers ---------------------------- */
 
-  /* console.log(pathLength.getTotalLength()); */
+  /* console.log(svgPath.getTotalLength()); */
 
   $shotTestButton.on("click", function() {
     if(shotStarted === false) {
@@ -592,10 +616,14 @@ $(document).ready(function() {
 
   $(document).keydown(function(event) {
   /* --- Shot Preview Pointer Movement --- */
-    if(event.which === 87 && aimPointerPositionY > 0 || event.which === 38 && aimPointerPositionY > 0) {
+    /* if(event.which === 87 && aimPointerPositionY > 0 || event.which === 38 && aimPointerPositionY > 0) {
       moveShotPreviewUp();
     }
     if(event.which === 83 && aimPointerPositionY < 280 || event.which === 40 && aimPointerPositionY < 280) {
+      moveShotPreviewDown();
+    } */
+
+    if(event.which === 83 || event.which === 40) {
       moveShotPreviewDown();
     }
 

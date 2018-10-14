@@ -124,7 +124,7 @@
   left: 0;
 }
 
-#path-test {
+#svg-main {
   position: absolute;
   z-index: 10;
   top: 16px;
