@@ -43,16 +43,17 @@ $(document).ready(function() {
   var backhand27 = {
     width: "5.3467mm",
     height: "79mm",
-    viewBox: "",
-    transform: "",
-    d: "",
-    strokeDasharray: "",
-    strokeWidth: ""
+    viewBox: "0 0 5.3466983 79.000092",
+    transform: "translate(-29.077 -14.083)",
+    d: "m29.205 93.052c11.446-46.3 0-78.925 0-78.925",
+    strokeDashArray: "1.05999995,0.52999997",
+    strokeWidth: ".265"
   };
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
+  var shotArray = 28;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -189,21 +190,23 @@ $(document).ready(function() {
 
   function moveShotPreviewDown() {
     if(shotStarted === false) {
-    /* ---- Shot Preview Pointer Down ---- */
-      /* aimPointerPositionY += 10;
-      $previewPointerContainer.css("top", aimPointerPositionY + "px"); */
+    /* ----- Shot Path Preview Down ----- */
+      shotPathHeightBackhand += 10;
+      shotPathHeightForehand += 10;
 
-      svgMain.setAttribute("width", backhand27.width);
-      svgMain.setAttribute("height", backhand27.height);
-      svgMain.setAttribute("viewBox", "0 0 5.3466983 79.000092");
+      if(shotType === "backhand") {
+        $shotPathPreview.css("top", shotPathHeightBackhand);
 
-      $shotPathPreview.css("top", "26px");
+        svgMain.setAttribute("width", backhand27.width);
+        svgMain.setAttribute("height", backhand27.height);
+        svgMain.setAttribute("viewBox", backhand27.viewBox);
 
-      svgG.setAttribute("transform", "translate(-29.077 -14.083)");
+        svgG.setAttribute("transform", backhand27.transform);
 
-      svgPath.setAttribute("d", "m29.205 93.052c11.446-46.3 0-78.925 0-78.925");
-      svgPath.setAttribute("stroke-dasharray", "1.05999995,0.52999997");
-      svgPath.setAttribute("stroke-width", ".265");
+        svgPath.setAttribute("d", backhand27.d);
+        svgPath.setAttribute("stroke-dasharray", backhand27.strokeDashArray);
+        svgPath.setAttribute("stroke-width", backhand27.strokeWidth);
+      }
 
     /* ---- Shot Preview Length Left ---- */
       previewLengthPositionX -= 7;
@@ -219,6 +222,8 @@ $(document).ready(function() {
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
       moveShotPreviewAudio.play();
+
+      shotArray--;
     }
   }
 
@@ -623,7 +628,7 @@ $(document).ready(function() {
       moveShotPreviewDown();
     } */
 
-    if(event.which === 83 || event.which === 40) {
+    if(event.which === 83 && shotArray > 27|| event.which === 40 && shotArray > 27) {
       moveShotPreviewDown();
     }
 
