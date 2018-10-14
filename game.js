@@ -152,6 +152,9 @@ $(document).ready(function() {
 
       shotType = "backhand";
     }
+
+    moveShotPreviewAudio.muted = false;
+    moveShotPreviewAudio.play();
   }
 
 
