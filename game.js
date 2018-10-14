@@ -139,14 +139,14 @@ $(document).ready(function() {
 
   function changeShotType() {
     if(shotType === "backhand") {
-      pathLength.setAttribute("d", "m18.418 89.083c-11.437-47.853 0-81.573 0-81.573");
+      pathLength.setAttribute("d", "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573");
       $shotPath.css("top", shotPathHeightForehand + "px");
       $shotPath.css("left", "-20px");
 
       shotType = "forehand";
     }
     else if(shotType === "forehand") {
-      pathLength.setAttribute("d", "m13.332 89.083c11.437-47.853 0-81.573 0-81.573");
+      pathLength.setAttribute("d", "m32.231 114.03c11.437-47.853 0-81.573 0-81.573");
       $shotPath.css("top", shotPathHeightBackhand + "px");
       $shotPath.css("left", "20px");
 
