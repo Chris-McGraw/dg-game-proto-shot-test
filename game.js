@@ -50,6 +50,16 @@ $(document).ready(function() {
     strokeWidth: ".265"
   };
 
+  var forehand27 = {
+    width: "5.3467mm",
+    height: "79mm",
+    viewBox: "0 0 5.3466983 79.000092",
+    transform: "translate(-29.077 -14.083)",
+    d: "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925",
+    strokeDashArray: "1.05999995,0.52999997",
+    strokeWidth: ".265"
+  };
+
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
@@ -131,15 +141,30 @@ $(document).ready(function() {
 
 
   function changeShotType() {
-    if(shotType === "backhand") {
+    if(shotType === "backhand" && shotArray === 28) {
       svgPath.setAttribute("d", "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573");
       $shotPathPreview.css("top", shotPathHeightForehand + "px");
       $shotPathPreview.css("left", "-20px");
 
       shotType = "forehand";
     }
-    else if(shotType === "forehand") {
+    else if(shotType === "forehand" && shotArray === 28) {
       svgPath.setAttribute("d", "m32.231 114.03c11.437-47.853 0-81.573 0-81.573");
+      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
+      $shotPathPreview.css("left", "20px");
+
+      shotType = "backhand";
+    }
+
+    if(shotType === "backhand" && shotArray === 27) {
+      svgPath.setAttribute("d", "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925");
+      $shotPathPreview.css("top", shotPathHeightForehand + "px");
+      $shotPathPreview.css("left", "-20px");
+
+      shotType = "forehand";
+    }
+    else if(shotType === "forehand" && shotArray === 27) {
+      svgPath.setAttribute("d", "m29.205 93.052c11.446-46.3 0-78.925 0-78.925");
       $shotPathPreview.css("top", shotPathHeightBackhand + "px");
       $shotPathPreview.css("left", "20px");
 
@@ -206,6 +231,19 @@ $(document).ready(function() {
         svgPath.setAttribute("d", backhand27.d);
         svgPath.setAttribute("stroke-dasharray", backhand27.strokeDashArray);
         svgPath.setAttribute("stroke-width", backhand27.strokeWidth);
+      }
+      else if(shotType === "forehand") {
+        $shotPathPreview.css("top", shotPathHeightForehand);
+
+        svgMain.setAttribute("width", forehand27.width);
+        svgMain.setAttribute("height", forehand27.height);
+        svgMain.setAttribute("viewBox", forehand27.viewBox);
+
+        svgG.setAttribute("transform", forehand27.transform);
+
+        svgPath.setAttribute("d", forehand27.d);
+        svgPath.setAttribute("stroke-dasharray", forehand27.strokeDashArray);
+        svgPath.setAttribute("stroke-width", forehand27.strokeWidth);
       }
 
     /* ---- Shot Preview Length Left ---- */
