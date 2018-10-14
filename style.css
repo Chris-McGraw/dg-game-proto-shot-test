@@ -124,7 +124,7 @@
   left: 0;
 }
 
-#path-test {
+#svg-main {
   position: absolute;
   z-index: 10;
   top: 16px;
@@ -134,7 +134,7 @@
   margin: auto;
 
   stroke-dasharray: 1000;
-  stroke-dashoffset: 82.43671417236328;
+  stroke-dashoffset: 82.43675231933594;
 
   transform-origin: center bottom;
   animation: pathPreview 20s linear infinite;
@@ -144,42 +144,6 @@
   to {
     stroke-dashoffset: 0;
   }
-}
-
-#preview-pointer-container {
-  position: absolute;
-  z-index: 20;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  margin: auto;
-
-  display: none;
-}
-
-#shot-preview-pointer-top {
-  position: absolute;
-  z-index: 20;
-  top: 13px;
-  left: -12px;
-  right: 0;
-
-  margin: auto;
-}
-
-#shot-preview-pointer-bottom {
-  position: absolute;
-  z-index: 20;
-  top: 20px;
-  left: -12px;
-  right: 0;
-
-  margin: auto;
-}
-
-.blink {
-  opacity: 0.7;
 }
 
 #screen-container {

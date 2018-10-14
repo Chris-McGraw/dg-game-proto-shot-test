@@ -40,13 +40,56 @@ $(document).ready(function() {
 
 /* ------------------------- Variable Declarations ------------------------- */
 
+  var backhand27 = {
+    width: "5.3467mm",
+    height: "79mm",
+    viewBox: "0 0 5.3466983 79.000092",
+    transform: "translate(-29.077 -14.083)",
+    d: "m29.205 93.052c11.446-46.3 0-78.925 0-78.925",
+    strokeDashArray: "1.05999995,0.52999997",
+    strokeWidth: ".265"
+  };
+
+  var forehand27 = {
+    width: "5.3467mm",
+    height: "79mm",
+    viewBox: "0 0 5.3466983 79.000092",
+    transform: "translate(-29.077 -14.083)",
+    d: "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925",
+    strokeDashArray: "1.05999995,0.52999997",
+    strokeWidth: ".265"
+  };
+
+  var backhand28 = {
+    width: "5.3429mm",
+    height: "81.646mm",
+    viewBox: "0 0 5.3428669 81.645798",
+    transform: "translate(-32.102 -32.415)",
+    d: "m32.231 114.03c11.437-47.853 0-81.573 0-81.573",
+    strokeDashArray: "1.05833333, 0.52916667",
+    strokeWidth: ".26458"
+  };
+
+  var forehand28 = {
+    width: "5.3429mm",
+    height: "81.646mm",
+    viewBox: "0 0 5.3428669 81.645798",
+    transform: "translate(-32.102 -32.415)",
+    d: "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573",
+    strokeDashArray: "1.05833333, 0.52916667",
+    strokeWidth: ".26458"
+  };
+
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
+  var shotArray = 28;
 
-  var $shotPath = $("#path-test");
+  var $shotPathPreview = $("#svg-main");
 
-  var pathLength = document.getElementById("path-length");
+  var svgMain = document.getElementById("svg-main");
+  var svgG = document.getElementById("svg-g");
+  var svgPath = document.getElementById("svg-path");
 
   var $previewPointerContainer = $("#preview-pointer-container");
   var $shotPreviewPointerTop = $("#shot-preview-pointer-top");
@@ -117,38 +160,33 @@ $(document).ready(function() {
   }
 
 
-  function shotPreviewBlink() {
-    setTimeout(function() {
-      $shotPreviewPointerTop.addClass("blink");
-
-      setTimeout(function() {
-        $shotPreviewPointerBottom.addClass("blink");
-      }, 500);
-
-      setTimeout(function() {
-        $shotPreviewPointerTop.removeClass("blink");
-        $shotPreviewPointerBottom.removeClass("blink");
-      }, 1000);
-
-      setTimeout(function() {
-        shotPreviewBlink();
-      }, 2000);
-    }, 100);
-  }
-
-
   function changeShotType() {
-    if(shotType === "backhand") {
-      pathLength.setAttribute("d", "m18.418 89.083c-11.437-47.853 0-81.573 0-81.573");
-      $shotPath.css("top", shotPathHeightForehand + "px");
-      $shotPath.css("left", "-20px");
+    if(shotType === "backhand" && shotArray === 28) {
+      svgPath.setAttribute("d", "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573");
+      $shotPathPreview.css("top", shotPathHeightForehand + "px");
+      $shotPathPreview.css("left", "-20px");
 
       shotType = "forehand";
     }
-    else if(shotType === "forehand") {
-      pathLength.setAttribute("d", "m13.332 89.083c11.437-47.853 0-81.573 0-81.573");
-      $shotPath.css("top", shotPathHeightBackhand + "px");
-      $shotPath.css("left", "20px");
+    else if(shotType === "forehand" && shotArray === 28) {
+      svgPath.setAttribute("d", "m32.231 114.03c11.437-47.853 0-81.573 0-81.573");
+      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
+      $shotPathPreview.css("left", "20px");
+
+      shotType = "backhand";
+    }
+
+    if(shotType === "backhand" && shotArray === 27) {
+      svgPath.setAttribute("d", "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925");
+      $shotPathPreview.css("top", shotPathHeightForehand + "px");
+      $shotPathPreview.css("left", "-20px");
+
+      shotType = "forehand";
+    }
+    else if(shotType === "forehand" && shotArray === 27) {
+      svgPath.setAttribute("d", "m29.205 93.052c11.446-46.3 0-78.925 0-78.925");
+      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
+      $shotPathPreview.css("left", "20px");
 
       shotType = "backhand";
     }
@@ -174,8 +212,35 @@ $(document).ready(function() {
   function moveShotPreviewUp() {
     if(shotStarted === false) {
     /* ----- Shot Preview Pointer Up ----- */
-      aimPointerPositionY -= 10;
-      $previewPointerContainer.css("top", aimPointerPositionY + "px");
+      shotPathHeightBackhand -= 10;
+      shotPathHeightForehand -= 10;
+
+      if(shotType === "backhand") {
+        $shotPathPreview.css("top", shotPathHeightBackhand);
+
+        svgMain.setAttribute("width", backhand28.width);
+        svgMain.setAttribute("height", backhand28.height);
+        svgMain.setAttribute("viewBox", backhand28.viewBox);
+
+        svgG.setAttribute("transform", backhand28.transform);
+
+        svgPath.setAttribute("d", backhand28.d);
+        svgPath.setAttribute("stroke-dasharray", backhand28.strokeDashArray);
+        svgPath.setAttribute("stroke-width", backhand28.strokeWidth);
+      }
+      else if(shotType === "forehand") {
+        $shotPathPreview.css("top", shotPathHeightForehand);
+
+        svgMain.setAttribute("width", forehand28.width);
+        svgMain.setAttribute("height", forehand28.height);
+        svgMain.setAttribute("viewBox", forehand28.viewBox);
+
+        svgG.setAttribute("transform", forehand28.transform);
+
+        svgPath.setAttribute("d", forehand28.d);
+        svgPath.setAttribute("stroke-dasharray", forehand28.strokeDashArray);
+        svgPath.setAttribute("stroke-width", forehand28.strokeWidth);
+      }
 
     /* ---- Shot Preview Length Right ---- */
       previewLengthPositionX += 7;
@@ -191,15 +256,44 @@ $(document).ready(function() {
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
       moveShotPreviewAudio.play();
+
+      shotArray++;
     }
   }
 
 
   function moveShotPreviewDown() {
     if(shotStarted === false) {
-    /* ---- Shot Preview Pointer Down ---- */
-      aimPointerPositionY += 10;
-      $previewPointerContainer.css("top", aimPointerPositionY + "px");
+    /* ----- Shot Path Preview Down ----- */
+      shotPathHeightBackhand += 10;
+      shotPathHeightForehand += 10;
+
+      if(shotType === "backhand") {
+        $shotPathPreview.css("top", shotPathHeightBackhand);
+
+        svgMain.setAttribute("width", backhand27.width);
+        svgMain.setAttribute("height", backhand27.height);
+        svgMain.setAttribute("viewBox", backhand27.viewBox);
+
+        svgG.setAttribute("transform", backhand27.transform);
+
+        svgPath.setAttribute("d", backhand27.d);
+        svgPath.setAttribute("stroke-dasharray", backhand27.strokeDashArray);
+        svgPath.setAttribute("stroke-width", backhand27.strokeWidth);
+      }
+      else if(shotType === "forehand") {
+        $shotPathPreview.css("top", shotPathHeightForehand);
+
+        svgMain.setAttribute("width", forehand27.width);
+        svgMain.setAttribute("height", forehand27.height);
+        svgMain.setAttribute("viewBox", forehand27.viewBox);
+
+        svgG.setAttribute("transform", forehand27.transform);
+
+        svgPath.setAttribute("d", forehand27.d);
+        svgPath.setAttribute("stroke-dasharray", forehand27.strokeDashArray);
+        svgPath.setAttribute("stroke-width", forehand27.strokeWidth);
+      }
 
     /* ---- Shot Preview Length Left ---- */
       previewLengthPositionX -= 7;
@@ -215,32 +309,8 @@ $(document).ready(function() {
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
       moveShotPreviewAudio.play();
-    }
-  }
 
-
-  function moveShotPreviewLeft() {
-    if(shotStarted === false) {
-    /* ---- Shot Preview Pointer Left ---- */
-      aimPointerPositionX -= 40;
-      $previewPointerContainer.css("left", aimPointerPositionX + "px");
-
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
-    }
-  }
-
-
-  function moveShotPreviewRight() {
-    if(shotStarted === false) {
-    /* ---- Shot Preview Pointer Right ---- */
-      aimPointerPositionX += 40;
-      $previewPointerContainer.css("left", aimPointerPositionX + "px");
-
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
+      shotArray--;
     }
   }
 
@@ -253,13 +323,13 @@ $(document).ready(function() {
       shotPathHeightBackhand -= 0.5;
       shotPathHeightForehand += 0.5;
 
-      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPathPreview.css("transform", "rotate(" + shotPathRotation + "deg)");
 
       if(shotType === "backhand") {
-        $shotPath.css("top", shotPathHeightBackhand + "px");
+        $shotPathPreview.css("top", shotPathHeightBackhand + "px");
       }
       else if(shotType === "forehand") {
-        $shotPath.css("top", shotPathHeightForehand + "px");
+        $shotPathPreview.css("top", shotPathHeightForehand + "px");
       }
 
     /* -- Play Move Shot Preview Audio -- */
@@ -279,13 +349,13 @@ $(document).ready(function() {
       shotPathHeightBackhand += 0.5;
       shotPathHeightForehand -= 0.5;
 
-      $shotPath.css("transform", "rotate(" + shotPathRotation + "deg)");
+      $shotPathPreview.css("transform", "rotate(" + shotPathRotation + "deg)");
 
       if(shotType === "backhand") {
-        $shotPath.css("top", shotPathHeightBackhand + "px");
+        $shotPathPreview.css("top", shotPathHeightBackhand + "px");
       }
       else if(shotType === "forehand") {
-        $shotPath.css("top", shotPathHeightForehand + "px");
+        $shotPathPreview.css("top", shotPathHeightForehand + "px");
       }
 
     /* -- Play Move Shot Preview Audio -- */
@@ -628,9 +698,7 @@ $(document).ready(function() {
 
 /* ---------------------------- Event Handlers ---------------------------- */
 
-  /* shotPreviewBlink(); */
-
-  /* console.log(pathLength.getTotalLength()); */
+  /* console.log(svgPath.getTotalLength()); */
 
   $shotTestButton.on("click", function() {
     if(shotStarted === false) {
@@ -640,10 +708,17 @@ $(document).ready(function() {
 
   $(document).keydown(function(event) {
   /* --- Shot Preview Pointer Movement --- */
-    if(event.which === 87 && aimPointerPositionY > 0 || event.which === 38 && aimPointerPositionY > 0) {
+    /* if(event.which === 87 && aimPointerPositionY > 0 || event.which === 38 && aimPointerPositionY > 0) {
       moveShotPreviewUp();
     }
     if(event.which === 83 && aimPointerPositionY < 280 || event.which === 40 && aimPointerPositionY < 280) {
+      moveShotPreviewDown();
+    } */
+
+    if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
+      moveShotPreviewUp();
+    }
+    if(event.which === 83 && shotArray > 27|| event.which === 40 && shotArray > 27) {
       moveShotPreviewDown();
     }
 
