@@ -117,26 +117,6 @@ $(document).ready(function() {
   }
 
 
-  function shotPreviewBlink() {
-    setTimeout(function() {
-      $shotPreviewPointerTop.addClass("blink");
-
-      setTimeout(function() {
-        $shotPreviewPointerBottom.addClass("blink");
-      }, 500);
-
-      setTimeout(function() {
-        $shotPreviewPointerTop.removeClass("blink");
-        $shotPreviewPointerBottom.removeClass("blink");
-      }, 1000);
-
-      setTimeout(function() {
-        shotPreviewBlink();
-      }, 2000);
-    }, 100);
-  }
-
-
   function changeShotType() {
     if(shotType === "backhand") {
       pathLength.setAttribute("d", "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573");
@@ -211,32 +191,6 @@ $(document).ready(function() {
     /* ---- Power Aim Indicator Left ---- */
       aimIndicatorPositionX -= 7;
       $powerAimIndicator.css("left", aimIndicatorPositionX + "px");
-
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
-    }
-  }
-
-
-  function moveShotPreviewLeft() {
-    if(shotStarted === false) {
-    /* ---- Shot Preview Pointer Left ---- */
-      aimPointerPositionX -= 40;
-      $previewPointerContainer.css("left", aimPointerPositionX + "px");
-
-    /* -- Play Move Shot Preview Audio -- */
-      moveShotPreviewAudio.muted = false;
-      moveShotPreviewAudio.play();
-    }
-  }
-
-
-  function moveShotPreviewRight() {
-    if(shotStarted === false) {
-    /* ---- Shot Preview Pointer Right ---- */
-      aimPointerPositionX += 40;
-      $previewPointerContainer.css("left", aimPointerPositionX + "px");
 
     /* -- Play Move Shot Preview Audio -- */
       moveShotPreviewAudio.muted = false;
@@ -627,8 +581,6 @@ $(document).ready(function() {
   }
 
 /* ---------------------------- Event Handlers ---------------------------- */
-
-  /* shotPreviewBlink(); */
 
   /* console.log(pathLength.getTotalLength()); */
 
