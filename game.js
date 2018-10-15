@@ -39,6 +39,32 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand25 = {
+    width: "5.3549mm",
+    height: "73.709mm",
+    viewBox: "0 0 5.3549094 73.708565",
+    transform: "translate(-26.805 -13.705)",
+    d: "m26.933 87.38c11.465-43.192 0-73.628 0-73.628",
+    strokeDashArray: "1.05999995, 0.52999997",
+
+    strokeDashOffset: "74.58731842041016",
+
+    strokeWidth: ".265"
+  };
+
+  var forehand25 = {
+    width: "5.3549mm",
+    height: "73.709mm",
+    viewBox: "0 0 5.3549094 73.708565",
+    transform: "translate(-26.805 -13.705)",
+    d: "m32.032 87.38c-11.465-43.192 0-73.628 0-73.628",
+    strokeDashArray: "1.05999995, 0.52999997",
+
+    strokeDashOffset: "74.58731842041016",
+
+    strokeWidth: ".265"
+  };
+
   var backhand26 = {
     width: "5.3506mm",
     height: "76.354mm",
@@ -117,15 +143,15 @@ $(document).ready(function() {
     strokeWidth: ".26458"
   };
 
-  var shotArrayListBackhand = [backhand26, backhand27, backhand28];
-  var shotArrayListForehand = [forehand26, forehand27, forehand28];
+  var shotArrayListBackhand = [backhand25, backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand25, forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 2;
+  var currentArray = 3;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -242,6 +268,21 @@ $(document).ready(function() {
     }
     else if(shotType === "forehand" && shotArray === 26) {
       svgPath.setAttribute("d", "m13.328 85.68c11.455-44.746 0-76.276 0-76.276");
+      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
+      $shotPathPreview.css("left", "20px");
+
+      shotType = "backhand";
+    }
+
+    if(shotType === "backhand" && shotArray === 25) {
+      svgPath.setAttribute("d", "m32.032 87.38c-11.465-43.192 0-73.628 0-73.628");
+      $shotPathPreview.css("top", shotPathHeightForehand + "px");
+      $shotPathPreview.css("left", "-20px");
+
+      shotType = "forehand";
+    }
+    else if(shotType === "forehand" && shotArray === 25) {
+      svgPath.setAttribute("d", "m26.933 87.38c11.465-43.192 0-73.628 0-73.628");
       $shotPathPreview.css("top", shotPathHeightBackhand + "px");
       $shotPathPreview.css("left", "20px");
 
@@ -785,7 +826,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 26|| event.which === 40 && shotArray > 26) {
+    if(event.which === 83 && shotArray > 25|| event.which === 40 && shotArray > 25) {
       moveShotPreviewDown();
     }
 
