@@ -80,6 +80,9 @@ $(document).ready(function() {
     strokeWidth: ".26458"
   };
 
+  var shotArrayListBackhand = [backhand27, backhand28];
+  var shotArrayListForehand = [forehand27, forehand28];
+
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
@@ -218,28 +221,28 @@ $(document).ready(function() {
       if(shotType === "backhand") {
         $shotPathPreview.css("top", shotPathHeightBackhand);
 
-        svgMain.setAttribute("width", backhand28.width);
-        svgMain.setAttribute("height", backhand28.height);
-        svgMain.setAttribute("viewBox", backhand28.viewBox);
+        svgMain.setAttribute("width", shotArrayListBackhand[1].width);
+        svgMain.setAttribute("height", shotArrayListBackhand[1].height);
+        svgMain.setAttribute("viewBox", shotArrayListBackhand[1].viewBox);
 
-        svgG.setAttribute("transform", backhand28.transform);
+        svgG.setAttribute("transform", shotArrayListBackhand[1].transform);
 
-        svgPath.setAttribute("d", backhand28.d);
-        svgPath.setAttribute("stroke-dasharray", backhand28.strokeDashArray);
-        svgPath.setAttribute("stroke-width", backhand28.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListBackhand[1].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListBackhand[1].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListBackhand[1].strokeWidth);
       }
       else if(shotType === "forehand") {
         $shotPathPreview.css("top", shotPathHeightForehand);
 
-        svgMain.setAttribute("width", forehand28.width);
-        svgMain.setAttribute("height", forehand28.height);
-        svgMain.setAttribute("viewBox", forehand28.viewBox);
+        svgMain.setAttribute("width", shotArrayListForehand[1].width);
+        svgMain.setAttribute("height", shotArrayListForehand[1].height);
+        svgMain.setAttribute("viewBox", shotArrayListForehand[1].viewBox);
 
-        svgG.setAttribute("transform", forehand28.transform);
+        svgG.setAttribute("transform", shotArrayListForehand[1].transform);
 
-        svgPath.setAttribute("d", forehand28.d);
-        svgPath.setAttribute("stroke-dasharray", forehand28.strokeDashArray);
-        svgPath.setAttribute("stroke-width", forehand28.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListForehand[1].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListForehand[1].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListForehand[1].strokeWidth);
       }
 
     /* ---- Shot Preview Length Right ---- */
@@ -271,28 +274,28 @@ $(document).ready(function() {
       if(shotType === "backhand") {
         $shotPathPreview.css("top", shotPathHeightBackhand);
 
-        svgMain.setAttribute("width", backhand27.width);
-        svgMain.setAttribute("height", backhand27.height);
-        svgMain.setAttribute("viewBox", backhand27.viewBox);
+        svgMain.setAttribute("width", shotArrayListBackhand[0].width);
+        svgMain.setAttribute("height", shotArrayListBackhand[0].height);
+        svgMain.setAttribute("viewBox", shotArrayListBackhand[0].viewBox);
 
-        svgG.setAttribute("transform", backhand27.transform);
+        svgG.setAttribute("transform", shotArrayListBackhand[0].transform);
 
-        svgPath.setAttribute("d", backhand27.d);
-        svgPath.setAttribute("stroke-dasharray", backhand27.strokeDashArray);
-        svgPath.setAttribute("stroke-width", backhand27.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListBackhand[0].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListBackhand[0].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListBackhand[0].strokeWidth);
       }
       else if(shotType === "forehand") {
         $shotPathPreview.css("top", shotPathHeightForehand);
 
-        svgMain.setAttribute("width", forehand27.width);
-        svgMain.setAttribute("height", forehand27.height);
-        svgMain.setAttribute("viewBox", forehand27.viewBox);
+        svgMain.setAttribute("width", shotArrayListForehand[0].width);
+        svgMain.setAttribute("height", shotArrayListForehand[0].height);
+        svgMain.setAttribute("viewBox", shotArrayListForehand[0].viewBox);
 
-        svgG.setAttribute("transform", forehand27.transform);
+        svgG.setAttribute("transform", shotArrayListForehand[0].transform);
 
-        svgPath.setAttribute("d", forehand27.d);
-        svgPath.setAttribute("stroke-dasharray", forehand27.strokeDashArray);
-        svgPath.setAttribute("stroke-width", forehand27.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListForehand[0].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListForehand[0].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListForehand[0].strokeWidth);
       }
 
     /* ---- Shot Preview Length Left ---- */
