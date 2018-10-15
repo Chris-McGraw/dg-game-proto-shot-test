@@ -229,62 +229,19 @@ $(document).ready(function() {
 
 
   function changeShotType() {
-    if(shotType === "backhand" && shotArray === 28) {
-      svgPath.setAttribute("d", "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573");
+    if(shotType === "backhand") {
       $shotPathPreview.css("top", shotPathHeightForehand + "px");
       $shotPathPreview.css("left", "-20px");
 
-      shotType = "forehand";
-    }
-    else if(shotType === "forehand" && shotArray === 28) {
-      svgPath.setAttribute("d", "m32.231 114.03c11.437-47.853 0-81.573 0-81.573");
-      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
-      $shotPathPreview.css("left", "20px");
-
-      shotType = "backhand";
-    }
-
-    if(shotType === "backhand" && shotArray === 27) {
-      svgPath.setAttribute("d", "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925");
-      $shotPathPreview.css("top", shotPathHeightForehand + "px");
-      $shotPathPreview.css("left", "-20px");
+      svgPath.setAttribute("d", shotArrayListForehand[currentArray].d);
 
       shotType = "forehand";
     }
-    else if(shotType === "forehand" && shotArray === 27) {
-      svgPath.setAttribute("d", "m29.205 93.052c11.446-46.3 0-78.925 0-78.925");
+    else if(shotType === "forehand") {
       $shotPathPreview.css("top", shotPathHeightBackhand + "px");
       $shotPathPreview.css("left", "20px");
 
-      shotType = "backhand";
-    }
-
-    if(shotType === "backhand" && shotArray === 26) {
-      svgPath.setAttribute("d", "m18.422 85.68c-11.455-44.746 0-76.276 0-76.276");
-      $shotPathPreview.css("top", shotPathHeightForehand + "px");
-      $shotPathPreview.css("left", "-20px");
-
-      shotType = "forehand";
-    }
-    else if(shotType === "forehand" && shotArray === 26) {
-      svgPath.setAttribute("d", "m13.328 85.68c11.455-44.746 0-76.276 0-76.276");
-      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
-      $shotPathPreview.css("left", "20px");
-
-      shotType = "backhand";
-    }
-
-    if(shotType === "backhand" && shotArray === 25) {
-      svgPath.setAttribute("d", "m32.032 87.38c-11.465-43.192 0-73.628 0-73.628");
-      $shotPathPreview.css("top", shotPathHeightForehand + "px");
-      $shotPathPreview.css("left", "-20px");
-
-      shotType = "forehand";
-    }
-    else if(shotType === "forehand" && shotArray === 25) {
-      svgPath.setAttribute("d", "m26.933 87.38c11.465-43.192 0-73.628 0-73.628");
-      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
-      $shotPathPreview.css("left", "20px");
+      svgPath.setAttribute("d", shotArrayListBackhand[currentArray].d);
 
       shotType = "backhand";
     }
