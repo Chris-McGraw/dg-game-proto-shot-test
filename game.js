@@ -39,6 +39,31 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand26 = {
+    width: "5.3506mm",
+    height: "76.354mm",
+    viewBox: "0 0 5.3505793 76.354256",
+    transform: "translate(-13.2 -9.3586)",
+    d: "m13.328 85.68c11.455-44.746 0-76.276 0-76.276",
+    strokeDashArray: "1.05999995,0.52999997",
+
+    strokeDashOffset: "77.20118713378906",
+
+    strokeWidth: ".265"
+  };
+
+  var forehand26 = {
+    width: "5.3506mm",
+    height: "76.354mm",
+    viewBox: "0 0 5.3505793 76.354256",
+    transform: "translate(-13.2 -9.3586)",
+    d: "m18.422 85.68c-11.455-44.746 0-76.276 0-76.276",
+    strokeDashArray: "1.05999995,0.52999997",
+
+    strokeDashOffset: "77.20118713378906",
+
+    strokeWidth: ".265"
+  };
 
   var backhand27 = {
     width: "5.3467mm",
@@ -47,6 +72,9 @@ $(document).ready(function() {
     transform: "translate(-29.077 -14.083)",
     d: "m29.205 93.052c11.446-46.3 0-78.925 0-78.925",
     strokeDashArray: "1.05999995,0.52999997",
+
+    strokeDashOffset: "79.81852722167969",
+
     strokeWidth: ".265"
   };
 
@@ -57,6 +85,9 @@ $(document).ready(function() {
     transform: "translate(-29.077 -14.083)",
     d: "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925",
     strokeDashArray: "1.05999995,0.52999997",
+
+    strokeDashOffset: "79.81852722167969",
+
     strokeWidth: ".265"
   };
 
@@ -67,6 +98,9 @@ $(document).ready(function() {
     transform: "translate(-32.102 -32.415)",
     d: "m32.231 114.03c11.437-47.853 0-81.573 0-81.573",
     strokeDashArray: "1.05833333, 0.52916667",
+
+    strokeDashOffset: "82.43675231933594",
+
     strokeWidth: ".26458"
   };
 
@@ -77,13 +111,21 @@ $(document).ready(function() {
     transform: "translate(-32.102 -32.415)",
     d: "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573",
     strokeDashArray: "1.05833333, 0.52916667",
+
+    strokeDashOffset: "82.43675231933594",
+
     strokeWidth: ".26458"
   };
+
+  var shotArrayListBackhand = [backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
+
+  var currentArray = 2;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -191,6 +233,21 @@ $(document).ready(function() {
       shotType = "backhand";
     }
 
+    if(shotType === "backhand" && shotArray === 26) {
+      svgPath.setAttribute("d", "m18.422 85.68c-11.455-44.746 0-76.276 0-76.276");
+      $shotPathPreview.css("top", shotPathHeightForehand + "px");
+      $shotPathPreview.css("left", "-20px");
+
+      shotType = "forehand";
+    }
+    else if(shotType === "forehand" && shotArray === 26) {
+      svgPath.setAttribute("d", "m13.328 85.68c11.455-44.746 0-76.276 0-76.276");
+      $shotPathPreview.css("top", shotPathHeightBackhand + "px");
+      $shotPathPreview.css("left", "20px");
+
+      shotType = "backhand";
+    }
+
     moveShotPreviewAudio.muted = false;
     moveShotPreviewAudio.play();
   }
@@ -217,29 +274,31 @@ $(document).ready(function() {
 
       if(shotType === "backhand") {
         $shotPathPreview.css("top", shotPathHeightBackhand);
+        $shotPathPreview.css("stroke-dashoffset", shotArrayListBackhand[currentArray + 1].strokeDashOffset);
 
-        svgMain.setAttribute("width", backhand28.width);
-        svgMain.setAttribute("height", backhand28.height);
-        svgMain.setAttribute("viewBox", backhand28.viewBox);
+        svgMain.setAttribute("width", shotArrayListBackhand[currentArray + 1].width);
+        svgMain.setAttribute("height", shotArrayListBackhand[currentArray + 1].height);
+        svgMain.setAttribute("viewBox", shotArrayListBackhand[currentArray + 1].viewBox);
 
-        svgG.setAttribute("transform", backhand28.transform);
+        svgG.setAttribute("transform", shotArrayListBackhand[currentArray + 1].transform);
 
-        svgPath.setAttribute("d", backhand28.d);
-        svgPath.setAttribute("stroke-dasharray", backhand28.strokeDashArray);
-        svgPath.setAttribute("stroke-width", backhand28.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListBackhand[currentArray + 1].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListBackhand[currentArray + 1].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListBackhand[currentArray + 1].strokeWidth);
       }
       else if(shotType === "forehand") {
         $shotPathPreview.css("top", shotPathHeightForehand);
+        $shotPathPreview.css("stroke-dashoffset", shotArrayListForehand[currentArray + 1].strokeDashOffset);
 
-        svgMain.setAttribute("width", forehand28.width);
-        svgMain.setAttribute("height", forehand28.height);
-        svgMain.setAttribute("viewBox", forehand28.viewBox);
+        svgMain.setAttribute("width", shotArrayListForehand[currentArray + 1].width);
+        svgMain.setAttribute("height", shotArrayListForehand[currentArray + 1].height);
+        svgMain.setAttribute("viewBox", shotArrayListForehand[currentArray + 1].viewBox);
 
-        svgG.setAttribute("transform", forehand28.transform);
+        svgG.setAttribute("transform", shotArrayListForehand[currentArray + 1].transform);
 
-        svgPath.setAttribute("d", forehand28.d);
-        svgPath.setAttribute("stroke-dasharray", forehand28.strokeDashArray);
-        svgPath.setAttribute("stroke-width", forehand28.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListForehand[currentArray + 1].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListForehand[currentArray + 1].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListForehand[currentArray + 1].strokeWidth);
       }
 
     /* ---- Shot Preview Length Right ---- */
@@ -258,6 +317,9 @@ $(document).ready(function() {
       moveShotPreviewAudio.play();
 
       shotArray++;
+      currentArray++;
+
+      /* console.log(svgPath.getTotalLength()); */
     }
   }
 
@@ -270,29 +332,31 @@ $(document).ready(function() {
 
       if(shotType === "backhand") {
         $shotPathPreview.css("top", shotPathHeightBackhand);
+        $shotPathPreview.css("stroke-dashoffset", shotArrayListBackhand[currentArray - 1].strokeDashOffset);
 
-        svgMain.setAttribute("width", backhand27.width);
-        svgMain.setAttribute("height", backhand27.height);
-        svgMain.setAttribute("viewBox", backhand27.viewBox);
+        svgMain.setAttribute("width", shotArrayListBackhand[currentArray - 1].width);
+        svgMain.setAttribute("height", shotArrayListBackhand[currentArray - 1].height);
+        svgMain.setAttribute("viewBox", shotArrayListBackhand[currentArray - 1].viewBox);
 
-        svgG.setAttribute("transform", backhand27.transform);
+        svgG.setAttribute("transform", shotArrayListBackhand[currentArray - 1].transform);
 
-        svgPath.setAttribute("d", backhand27.d);
-        svgPath.setAttribute("stroke-dasharray", backhand27.strokeDashArray);
-        svgPath.setAttribute("stroke-width", backhand27.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListBackhand[currentArray - 1].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListBackhand[currentArray - 1].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListBackhand[currentArray - 1].strokeWidth);
       }
       else if(shotType === "forehand") {
         $shotPathPreview.css("top", shotPathHeightForehand);
+        $shotPathPreview.css("stroke-dashoffset", shotArrayListForehand[currentArray - 1].strokeDashOffset);
 
-        svgMain.setAttribute("width", forehand27.width);
-        svgMain.setAttribute("height", forehand27.height);
-        svgMain.setAttribute("viewBox", forehand27.viewBox);
+        svgMain.setAttribute("width", shotArrayListForehand[currentArray - 1].width);
+        svgMain.setAttribute("height", shotArrayListForehand[currentArray - 1].height);
+        svgMain.setAttribute("viewBox", shotArrayListForehand[currentArray - 1].viewBox);
 
-        svgG.setAttribute("transform", forehand27.transform);
+        svgG.setAttribute("transform", shotArrayListForehand[currentArray - 1].transform);
 
-        svgPath.setAttribute("d", forehand27.d);
-        svgPath.setAttribute("stroke-dasharray", forehand27.strokeDashArray);
-        svgPath.setAttribute("stroke-width", forehand27.strokeWidth);
+        svgPath.setAttribute("d", shotArrayListForehand[currentArray - 1].d);
+        svgPath.setAttribute("stroke-dasharray", shotArrayListForehand[currentArray - 1].strokeDashArray);
+        svgPath.setAttribute("stroke-width", shotArrayListForehand[currentArray - 1].strokeWidth);
       }
 
     /* ---- Shot Preview Length Left ---- */
@@ -311,6 +375,9 @@ $(document).ready(function() {
       moveShotPreviewAudio.play();
 
       shotArray--;
+      currentArray--;
+
+      /* console.log(svgPath.getTotalLength()); */
     }
   }
 
@@ -718,7 +785,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 27|| event.which === 40 && shotArray > 27) {
+    if(event.which === 83 && shotArray > 26|| event.which === 40 && shotArray > 26) {
       moveShotPreviewDown();
     }
 
