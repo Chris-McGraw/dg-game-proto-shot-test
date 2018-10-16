@@ -39,6 +39,26 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand22 = {
+    width: "5.3664mm",
+    height: "65.771mm",
+    viewBox: "0 0 5.3664412 65.77095",
+    transform: "translate(-8.6561 -4.0669)",
+    d: "m8.7828 69.8c11.495-38.531 0-65.682 0-65.682",
+
+    strokeDashOffset: "66.75943756103516"
+  };
+
+  var forehand22 = {
+    width: "5.3664mm",
+    height: "65.771mm",
+    viewBox: "0 0 5.3664412 65.77095",
+    transform: "translate(-8.6561 -4.0669)",
+    d: "m13.896 69.8c-11.495-38.531 0-65.682 0-65.682",
+
+    strokeDashOffset: "66.75943756103516"
+  };
+
   var backhand23 = {
     width: "5.3629mm",
     height: "68.417mm",
@@ -46,7 +66,7 @@ $(document).ready(function() {
     transform: "translate(-7.9019 -8.7915)",
     d: "m8.0293 77.172c11.485-40.085 0-68.331 0-68.331",
 
-    strokeDashOffset: "69.36615753173828"
+    strokeDashOffset: "69.36614990234375"
   };
 
   var forehand23 = {
@@ -56,7 +76,7 @@ $(document).ready(function() {
     transform: "translate(-7.9019 -8.7915)",
     d: "m13.137 77.172c-11.485-40.085 0-68.331 0-68.331",
 
-    strokeDashOffset: "69.36615753173828"
+    strokeDashOffset: "69.36614990234375"
   };
 
   var backhand24 = {
@@ -66,7 +86,7 @@ $(document).ready(function() {
     transform: "translate(-10.172 -5.2008)",
     d: "m10.3 76.228c11.475-41.639 0-70.979 0-70.979",
 
-    strokeDashOffset: "71.97492218017578"
+    strokeDashOffset: "71.97493743896484"
   };
 
   var forehand24 = {
@@ -76,7 +96,7 @@ $(document).ready(function() {
     transform: "translate(-10.172 -5.2008)",
     d: "m15.407 76.228c-11.475-41.639 0-70.979 0-70.979",
 
-    strokeDashOffset: "71.97492218017578"
+    strokeDashOffset: "71.97493743896484"
   };
 
   var backhand25 = {
@@ -86,7 +106,7 @@ $(document).ready(function() {
     transform: "translate(-26.805 -13.705)",
     d: "m26.933 87.38c11.465-43.192 0-73.628 0-73.628",
 
-    strokeDashOffset: "74.58731079101562"
+    strokeDashOffset: "74.58731842041016"
   };
 
   var forehand25 = {
@@ -96,7 +116,7 @@ $(document).ready(function() {
     transform: "translate(-26.805 -13.705)",
     d: "m32.032 87.38c-11.465-43.192 0-73.628 0-73.628",
 
-    strokeDashOffset: "74.58731079101562"
+    strokeDashOffset: "74.58731842041016"
   };
 
   var backhand26 = {
@@ -106,7 +126,7 @@ $(document).ready(function() {
     transform: "translate(-13.2 -9.3586)",
     d: "m13.328 85.68c11.455-44.746 0-76.276 0-76.276",
 
-    strokeDashOffset: "77.20117950439453"
+    strokeDashOffset: "77.20118713378906"
   };
 
   var forehand26 = {
@@ -116,7 +136,7 @@ $(document).ready(function() {
     transform: "translate(-13.2 -9.3586)",
     d: "m18.422 85.68c-11.455-44.746 0-76.276 0-76.276",
 
-    strokeDashOffset: "77.20117950439453"
+    strokeDashOffset: "77.20118713378906"
   };
 
   var backhand27 = {
@@ -126,7 +146,7 @@ $(document).ready(function() {
     transform: "translate(-29.077 -14.083)",
     d: "m29.205 93.052c11.446-46.3 0-78.925 0-78.925",
 
-    strokeDashOffset: "79.81848907470703"
+    strokeDashOffset: "79.81852722167969"
   };
 
   var forehand27 = {
@@ -136,7 +156,7 @@ $(document).ready(function() {
     transform: "translate(-29.077 -14.083)",
     d: "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925",
 
-    strokeDashOffset: "79.81848907470703"
+    strokeDashOffset: "79.81852722167969"
   };
 
   var backhand28 = {
@@ -146,7 +166,7 @@ $(document).ready(function() {
     transform: "translate(-32.102 -32.415)",
     d: "m32.231 114.03c11.437-47.853 0-81.573 0-81.573",
 
-    strokeDashOffset: "82.4367446899414"
+    strokeDashOffset: "82.43675231933594"
   };
 
   var forehand28 = {
@@ -156,18 +176,18 @@ $(document).ready(function() {
     transform: "translate(-32.102 -32.415)",
     d: "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573",
 
-    strokeDashOffset: "82.4367446899414"
+    strokeDashOffset: "82.43675231933594"
   };
 
-  var shotArrayListBackhand = [backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
-  var shotArrayListForehand = [forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
+  var shotArrayListBackhand = [backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 5;
+  var currentArray = 6;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -791,7 +811,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 23|| event.which === 40 && shotArray > 23) {
+    if(event.which === 83 && shotArray > 22|| event.which === 40 && shotArray > 22) {
       moveShotPreviewDown();
     }
 
