@@ -45,11 +45,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3628645 68.416924",
     transform: "translate(-7.9019 -8.7915)",
     d: "m8.0293 77.172c11.485-40.085 0-68.331 0-68.331",
-    strokeDashArray: "1.05999995, 0.52999997",
 
-    strokeDashOffset: "69.36614990234375",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "69.36615753173828"
   };
 
   var forehand23 = {
@@ -58,11 +55,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3628645 68.416924",
     transform: "translate(-7.9019 -8.7915)",
     d: "m13.137 77.172c-11.485-40.085 0-68.331 0-68.331",
-    strokeDashArray: "1.05999995, 0.52999997",
 
-    strokeDashOffset: "69.36614990234375",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "69.36615753173828"
   };
 
   var backhand24 = {
@@ -71,11 +65,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3588648 71.062744",
     transform: "translate(-10.172 -5.2008)",
     d: "m10.3 76.228c11.475-41.639 0-70.979 0-70.979",
-    strokeDashArray: "1.05999995, 0.52999997",
 
-    strokeDashOffset: "71.97493743896484",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "71.97492218017578"
   };
 
   var forehand24 = {
@@ -84,11 +75,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3588648 71.062744",
     transform: "translate(-10.172 -5.2008)",
     d: "m15.407 76.228c-11.475-41.639 0-70.979 0-70.979",
-    strokeDashArray: "1.05999995, 0.52999997",
 
-    strokeDashOffset: "71.97493743896484",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "71.97492218017578"
   };
 
   var backhand25 = {
@@ -97,11 +85,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3549094 73.708565",
     transform: "translate(-26.805 -13.705)",
     d: "m26.933 87.38c11.465-43.192 0-73.628 0-73.628",
-    strokeDashArray: "1.05999995, 0.52999997",
 
-    strokeDashOffset: "74.58731842041016",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "74.58731079101562"
   };
 
   var forehand25 = {
@@ -110,11 +95,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3549094 73.708565",
     transform: "translate(-26.805 -13.705)",
     d: "m32.032 87.38c-11.465-43.192 0-73.628 0-73.628",
-    strokeDashArray: "1.05999995, 0.52999997",
 
-    strokeDashOffset: "74.58731842041016",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "74.58731079101562"
   };
 
   var backhand26 = {
@@ -123,11 +105,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3505793 76.354256",
     transform: "translate(-13.2 -9.3586)",
     d: "m13.328 85.68c11.455-44.746 0-76.276 0-76.276",
-    strokeDashArray: "1.05999995,0.52999997",
 
-    strokeDashOffset: "77.20118713378906",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "77.20117950439453"
   };
 
   var forehand26 = {
@@ -136,11 +115,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3505793 76.354256",
     transform: "translate(-13.2 -9.3586)",
     d: "m18.422 85.68c-11.455-44.746 0-76.276 0-76.276",
-    strokeDashArray: "1.05999995,0.52999997",
 
-    strokeDashOffset: "77.20118713378906",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "77.20117950439453"
   };
 
   var backhand27 = {
@@ -149,11 +125,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3466983 79.000092",
     transform: "translate(-29.077 -14.083)",
     d: "m29.205 93.052c11.446-46.3 0-78.925 0-78.925",
-    strokeDashArray: "1.05999995,0.52999997",
 
-    strokeDashOffset: "79.81852722167969",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "79.81848907470703"
   };
 
   var forehand27 = {
@@ -162,11 +135,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3466983 79.000092",
     transform: "translate(-29.077 -14.083)",
     d: "m34.295 93.052c-11.446-46.3 0-78.925 0-78.925",
-    strokeDashArray: "1.05999995,0.52999997",
 
-    strokeDashOffset: "79.81852722167969",
-
-    strokeWidth: ".265"
+    strokeDashOffset: "79.81848907470703"
   };
 
   var backhand28 = {
@@ -175,11 +145,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3428669 81.645798",
     transform: "translate(-32.102 -32.415)",
     d: "m32.231 114.03c11.437-47.853 0-81.573 0-81.573",
-    strokeDashArray: "1.05833333, 0.52916667",
 
-    strokeDashOffset: "82.43675231933594",
-
-    strokeWidth: ".26458"
+    strokeDashOffset: "82.4367446899414"
   };
 
   var forehand28 = {
@@ -188,11 +155,8 @@ $(document).ready(function() {
     viewBox: "0 0 5.3428669 81.645798",
     transform: "translate(-32.102 -32.415)",
     d: "m37.321 114.03c-11.437-47.853 0-81.573 0-81.573",
-    strokeDashArray: "1.05833333, 0.52916667",
 
-    strokeDashOffset: "82.43675231933594",
-
-    strokeWidth: ".26458"
+    strokeDashOffset: "82.4367446899414"
   };
 
   var shotArrayListBackhand = [backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
@@ -333,8 +297,6 @@ $(document).ready(function() {
         svgG.setAttribute("transform", shotArrayListBackhand[currentArray + 1].transform);
 
         svgPath.setAttribute("d", shotArrayListBackhand[currentArray + 1].d);
-        svgPath.setAttribute("stroke-dasharray", shotArrayListBackhand[currentArray + 1].strokeDashArray);
-        svgPath.setAttribute("stroke-width", shotArrayListBackhand[currentArray + 1].strokeWidth);
       }
       else if(shotType === "forehand") {
         $shotPathPreview.css("top", shotPathHeightForehand);
@@ -347,8 +309,6 @@ $(document).ready(function() {
         svgG.setAttribute("transform", shotArrayListForehand[currentArray + 1].transform);
 
         svgPath.setAttribute("d", shotArrayListForehand[currentArray + 1].d);
-        svgPath.setAttribute("stroke-dasharray", shotArrayListForehand[currentArray + 1].strokeDashArray);
-        svgPath.setAttribute("stroke-width", shotArrayListForehand[currentArray + 1].strokeWidth);
       }
 
     /* ---- Shot Preview Length Right ---- */
@@ -391,8 +351,6 @@ $(document).ready(function() {
         svgG.setAttribute("transform", shotArrayListBackhand[currentArray - 1].transform);
 
         svgPath.setAttribute("d", shotArrayListBackhand[currentArray - 1].d);
-        svgPath.setAttribute("stroke-dasharray", shotArrayListBackhand[currentArray - 1].strokeDashArray);
-        svgPath.setAttribute("stroke-width", shotArrayListBackhand[currentArray - 1].strokeWidth);
       }
       else if(shotType === "forehand") {
         $shotPathPreview.css("top", shotPathHeightForehand);
@@ -405,8 +363,6 @@ $(document).ready(function() {
         svgG.setAttribute("transform", shotArrayListForehand[currentArray - 1].transform);
 
         svgPath.setAttribute("d", shotArrayListForehand[currentArray - 1].d);
-        svgPath.setAttribute("stroke-dasharray", shotArrayListForehand[currentArray - 1].strokeDashArray);
-        svgPath.setAttribute("stroke-width", shotArrayListForehand[currentArray - 1].strokeWidth);
       }
 
     /* ---- Shot Preview Length Left ---- */
