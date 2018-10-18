@@ -39,6 +39,26 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand19 = {
+    width: "5.3787mm",
+    height: "57.833mm",
+    viewBox: "0 0 5.3787189 57.833443",
+    transform: "translate(-12.43 -9.5476)",
+    d: "m12.555 67.338c11.527-33.868 0-57.733 0-57.733",
+
+    strokeDashOffset: "58.95989227294922"
+  };
+
+  var forehand19 = {
+    width: "5.3787mm",
+    height: "57.833mm",
+    viewBox: "0 0 5.3787189 57.833443",
+    transform: "translate(-12.43 -9.5476)",
+    d: "m17.683 67.338c-11.527-33.868 0-57.733 0-57.733",
+
+    strokeDashOffset: "58.95989227294922"
+  };
+
   var backhand20 = {
     width: "5.3746mm",
     height: "60.479mm",
@@ -219,15 +239,15 @@ $(document).ready(function() {
     strokeDashOffset: "82.43675231933594"
   };
 
-  var shotArrayListBackhand = [backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
-  var shotArrayListForehand = [forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
+  var shotArrayListBackhand = [backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 8;
+  var currentArray = 9;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -443,7 +463,7 @@ $(document).ready(function() {
       shotArray--;
       currentArray--;
 
-      /* console.log(svgPath.getTotalLength()); */
+      console.log(svgPath.getTotalLength());
     }
   }
 
@@ -851,7 +871,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 20|| event.which === 40 && shotArray > 20) {
+    if(event.which === 83 && shotArray > 19|| event.which === 40 && shotArray > 19) {
       moveShotPreviewDown();
     }
 
