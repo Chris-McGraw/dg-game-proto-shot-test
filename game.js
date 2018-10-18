@@ -39,6 +39,26 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand18 = {
+    width: "5.3828mm",
+    height: "55.188mm",
+    viewBox: "0 0 5.3828359 55.187614",
+    transform: "translate(-6.38 -4.8229)",
+    d: "m6.5046 59.966c11.539-32.314 0-55.083 0-55.083",
+
+    strokeDashOffset: "56.369022369384766"
+  };
+
+  var forehand18 = {
+    width: "5.3828mm",
+    height: "55.188mm",
+    viewBox: "0 0 5.3828359 55.187614",
+    transform: "translate(-6.38 -4.8229)",
+    d: "m11.638 59.966c-11.539-32.314 0-55.083 0-55.083",
+
+    strokeDashOffset: "56.369022369384766"
+  };
+
   var backhand19 = {
     width: "5.3787mm",
     height: "57.833mm",
@@ -239,15 +259,15 @@ $(document).ready(function() {
     strokeDashOffset: "82.43675231933594"
   };
 
-  var shotArrayListBackhand = [backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
-  var shotArrayListForehand = [forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
+  var shotArrayListBackhand = [backhand18, backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand18, forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 9;
+  var currentArray = 10;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -871,7 +891,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 19|| event.which === 40 && shotArray > 19) {
+    if(event.which === 83 && shotArray > 18|| event.which === 40 && shotArray > 18) {
       moveShotPreviewDown();
     }
 
