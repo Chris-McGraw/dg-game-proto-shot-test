@@ -39,6 +39,26 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand20 = {
+    width: "5.3746mm",
+    height: "60.479mm",
+    viewBox: "0 0 5.3746138 60.479271",
+    transform: "translate(-13.188 -9.7366)",
+    d: "m13.313 70.175c11.516-35.423 0-60.383 0-60.383",
+
+    strokeDashOffset: "61.5558967590332"
+  };
+
+  var forehand20 = {
+    width: "5.3746mm",
+    height: "60.479mm",
+    viewBox: "0 0 5.3746138 60.479271",
+    transform: "translate(-13.188 -9.7366)",
+    d: "m18.437 70.175c-11.516-35.423 0-60.383 0-60.383",
+
+    strokeDashOffset: "61.5558967590332"
+  };
+
   var backhand21 = {
     width: "5.3705mm",
     height: "63.125mm",
@@ -199,15 +219,15 @@ $(document).ready(function() {
     strokeDashOffset: "82.43675231933594"
   };
 
-  var shotArrayListBackhand = [backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
-  var shotArrayListForehand = [forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
+  var shotArrayListBackhand = [backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 7;
+  var currentArray = 8;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -831,7 +851,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 21|| event.which === 40 && shotArray > 21) {
+    if(event.which === 83 && shotArray > 20|| event.which === 40 && shotArray > 20) {
       moveShotPreviewDown();
     }
 
