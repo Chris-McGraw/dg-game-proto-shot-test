@@ -39,6 +39,26 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand16 = {
+    width: "5.3911mm",
+    height: "49.896mm",
+    viewBox: "0 0 5.3910508 49.895966",
+    transform: "translate(-10.156 -5.2008)",
+    d: "m10.279 55.048c11.562-29.204 0-49.782 0-49.782",
+
+    strokeDashOffset: "51.20357894897461"
+  };
+
+  var forehand16 = {
+    width: "5.3911mm",
+    height: "49.896mm",
+    viewBox: "0 0 5.3910508 49.895966",
+    transform: "translate(-10.156 -5.2008)",
+    d: "m15.424 55.048c-11.562-29.204 0-49.782 0-49.782",
+
+    strokeDashOffset: "51.20357894897461"
+  };
+
   var backhand17 = {
     width: "5.3869mm",
     height: "52.542mm",
@@ -279,15 +299,15 @@ $(document).ready(function() {
     strokeDashOffset: "82.43675231933594"
   };
 
-  var shotArrayListBackhand = [backhand17, backhand18, backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
-  var shotArrayListForehand = [forehand17, forehand18, forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
+  var shotArrayListBackhand = [backhand16, backhand17, backhand18, backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand16, forehand17, forehand18, forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 11;
+  var currentArray = 12;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -503,7 +523,7 @@ $(document).ready(function() {
       shotArray--;
       currentArray--;
 
-      console.log(svgPath.getTotalLength());
+      /* console.log(svgPath.getTotalLength()); */
     }
   }
 
@@ -911,7 +931,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 17|| event.which === 40 && shotArray > 17) {
+    if(event.which === 83 && shotArray > 16|| event.which === 40 && shotArray > 16) {
       moveShotPreviewDown();
     }
 
