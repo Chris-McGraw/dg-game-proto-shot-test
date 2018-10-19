@@ -39,6 +39,26 @@ $(document).ready(function() {
 
 
 /* ------------------------- Variable Declarations ------------------------- */
+  var backhand17 = {
+    width: "5.3869mm",
+    height: "52.542mm",
+    viewBox: "0 0 5.3868952 52.54184",
+    transform: "translate(-20.741 -8.4136)",
+    d: "m20.865 60.909c11.55-30.759 0-52.433 0-52.433",
+
+    strokeDashOffset: "53.783485412597656"
+  };
+
+  var forehand17 = {
+    width: "5.3869mm",
+    height: "52.542mm",
+    viewBox: "0 0 5.3868952 52.54184",
+    transform: "translate(-20.741 -8.4136)",
+    d: "m26.004 60.909c-11.55-30.759 0-52.433 0-52.433",
+
+    strokeDashOffset: "53.783485412597656"
+  };
+
   var backhand18 = {
     width: "5.3828mm",
     height: "55.188mm",
@@ -259,15 +279,15 @@ $(document).ready(function() {
     strokeDashOffset: "82.43675231933594"
   };
 
-  var shotArrayListBackhand = [backhand18, backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
-  var shotArrayListForehand = [forehand18, forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
+  var shotArrayListBackhand = [backhand17, backhand18, backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
+  var shotArrayListForehand = [forehand17, forehand18, forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
 
   var $obZone = $("#ob-zone-0");
 
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 10;
+  var currentArray = 11;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -891,7 +911,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 18|| event.which === 40 && shotArray > 18) {
+    if(event.which === 83 && shotArray > 17|| event.which === 40 && shotArray > 17) {
       moveShotPreviewDown();
     }
 
