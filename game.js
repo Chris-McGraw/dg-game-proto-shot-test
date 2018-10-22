@@ -45,7 +45,7 @@ $(document).ready(function() {
   var shotType = "backhand";
   var shotArray = 28;
 
-  var currentArray = 12;
+  var currentArray = 13;
 
   var $shotPathPreview = $("#svg-main");
 
@@ -669,7 +669,7 @@ $(document).ready(function() {
     if(event.which === 87 && shotArray < 28 || event.which === 38 && shotArray < 28) {
       moveShotPreviewUp();
     }
-    if(event.which === 83 && shotArray > 16|| event.which === 40 && shotArray > 16) {
+    if(event.which === 83 && shotArray > 15|| event.which === 40 && shotArray > 15) {
       moveShotPreviewDown();
     }
 

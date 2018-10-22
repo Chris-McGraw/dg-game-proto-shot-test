@@ -1,5 +1,24 @@
 /* ------------------------ Shot Preview SVG Objects ------------------------ */
 
+var backhand15 = {
+  width: "5.3952mm",
+  height: "47.25mm",
+  viewBox: "0 0 5.3952074 47.250084",
+  transform: "translate(-23.761 -35.25)",
+  d: "m23.883 82.449c11.574-27.649 0-47.131 0-47.131",
+  strokeDashOffset: "48.631038665771484"
+};
+
+var forehand15 = {
+  width: "5.3952mm",
+  height: "47.25mm",
+  viewBox: "0 0 5.3952074 47.250084",
+  transform: "translate(-23.761 -35.25)",
+  d: "m29.034 82.449c-11.574-27.649 0-47.131 0-47.131",
+  strokeDashOffset: "48.631038665771484"
+};
+
+
 var backhand16 = {
   width: "5.3911mm",
   height: "49.896mm",
@@ -249,5 +268,5 @@ var forehand28 = {
 
 /* --------------------- Shot Preview SVG Object Arrays --------------------- */
 
-var shotPreviewArrayBackhand = [backhand16, backhand17, backhand18, backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
-var shotPreviewArrayForehand = [forehand16, forehand17, forehand18, forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
+var shotPreviewArrayBackhand = [backhand15, backhand16, backhand17, backhand18, backhand19, backhand20, backhand21, backhand22, backhand23, backhand24, backhand25, backhand26, backhand27, backhand28];
+var shotPreviewArrayForehand = [forehand15, forehand16, forehand17, forehand18, forehand19, forehand20, forehand21, forehand22, forehand23, forehand24, forehand25, forehand26, forehand27, forehand28];
